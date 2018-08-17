@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 1. 以下代码将输出到控制台中
+		// console.log((function f(n){
+		// 	return ((n > 1) ? n * f(n - 1) : n)
+		// })(10));//阶乘递归
+
+		// 2.
+		// var word = "hello world";
+		// (function (){
+		// 	alert(word);
+		// 	var word = "hello test";
+		// }());
+
+		// 2.
+		 // function test (){ 
+   //          var arr = [];
+   //          for(var i = 0; i<10; i++)
+   //          {
+   //              ( function(j){
+   //                    arr[j] = function(){
+   //                          document.write(j+" ");
+   //                                        }
+   //                            }(i));//将i传入立即执行函数，执行完立即销毁
+   //           }return arr;//实时将数组传出
+   //       }
+   //      //test  define ==>  testAO: i=0
+   //      var myArr = test();
+   //      //test  doing  ==>   arrAO: i=1; j=i;
+   //      for (var j = 0; j < 12; j++){
+   //          myArr[j]();//0 1 2 3 4 5 6 7 8 9
+   //      }
+
+		// 3.
+		// var a;
+		// alert(a);
+		// b = 10;
+		// alert(typeof(b));
+
+		// 4.JS实现找出字符串中出现最多的字符和次数
+		// var str = "zhaochucichuzuiduodezifu";
+	 //    var o = {};
+	 //    //遍历str，统计每个字符出现的次数
+	 //    for (var i = 0, length = str.length; i < length; i++) {
+	 //        //当前第i个字符
+	 //        var char = str.charAt(i);
+	 //        //char就是对象o的一个属性，o[char]是属性值，存储出现的次数
+	 //        if (o[char]) {  //如果char属性存在，属性值+1 
+	 //            o[char]++;  //次数加1
+	 //        } else {        //char属性不存在为1（即字符第一次出现） 
+	 //            o[char] = 1;    //若第一次出现，次数记为1
+	 //        }
+	 //    }
+	 //    //输出的是完整的对象，记录着每一个字符及其出现的次数
+	 //    //输出{a:1, c:3, d:2, e:1, f:1, h:3, i:3, o:2, u:5, z:3}
+	 //    console.log(o);   
+	 //    //遍历对象，找到出现次数最多的字符和次数
+	 //    var max = 0;        //存储出现次数最多的次数
+	 //    var maxChar = null; //存储出现次数最多的字符
+	 //    for (var key in o) {
+	 //        if (max < o[key]) {
+	 //            max = o[key];   //max始终储存次数最大的那个
+	 //            maxChar = key;  //那么对应的字符就是当前的key
+	 //        }
+	 //    }
+	 //    console.log("最多的字符是" + maxChar);
+	 //    console.log("出现的次数是" + max);
+
+	 // var str = new String('abcd');
+	 // str.length = 3;
+
+	 // var arr = [1,2,3,4];
+	 // Object.defineProperty(arr,"length",{writable:false});
+	 // arr.length = 3;
+	 // console.log(arr);
+	 // var str = "abcde";
+	 // str1 = new String("abced");
+	 // console.log(str1);
+	 // str = str.slice(3);//new String("abcde").slice()
+	 // console.log(str);
+
+
+	 // 4.
+	//  function outFn() {
+	//     this.num = 10;
+	//     function inFn(){
+	//        var num = 100;
+	//        alert(this.num);  //输出的结果________ 
+	//        alert(num);       //输出的结果________ 
+	// 		    }
+	// 	    return inFn;
+	// 	}
+	// outFn()();
+
+	// 5.(待解决)
+	// (function () {
+	// 	try {
+	// 		throw new Error();
+	// 	}
+	// 	catch (x){
+	// 		var x = 1;y = 2;
+	// 		consol.log(x);
+	// 	}
+	// 		console.log(x);
+	// 		console.log(y);
+	// })();
+		
+	// 6.
+	// var arr1 = "john".split('');
+	// var arr2 = arr1.reverse();
+	// var arr3 = "jones".split('');
+	// arr2.push(arr3);
+	// // console.log(arr1);
+	// console.log("array 1:length="  +arr1.length + " last=" + arr1.slice(-1));
+	// console.log("array 2:length="  +arr2.length + " last=" + arr2.slice(-1));
+
+	// 7.
+	// var a = 123;
+	// function f() {
+	// 	this.a = 234;
+	// 	console.log(a);
+	// 	console.log(this);
+	// 	console.log(this.a);
+	// }
+	// new  f();
+
+	// 8.
+	// console.log(Boolean(undefined));
+	// console.log("" && true);
+	// if(function(){}
+	// 	alert("1");
+	// }
+
+	// 9.
+	var bar = {a : "002"};
+	function print() {
+		bar.a = 'a';
+		Object.prototype.b = 'b';
+		return function inner() {
+			console.log(bar.a);
+			console.log(bar.b);
+		}
+	}
+	print()();
+	</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+	// (function (){
+	// 	var a = 123;
+	// 	var b = 23;
+	// 	console.log(a + b);
+	// }())
+	// 函数被执行后立即被销毁
+
+	//只有表达式才能被（）执行
+	// function test(){
+
+	// }//这个是函数声明
+
+	// test();//这个也是函数表达式test是function的引用 相当于test = function
+
+	// var test = function (){
+	// 	console.log('a');
+	// }()//这个是函数表达式，这种写法相当于立即执行函数，失去了对函数的定义，所以如何在后面再写test()；就会出现找不到的情况
+
+	//立即执行函数的另一种形式
+	// +function a(){
+	// 	console.log('a');
+	// }() //函数前加上+或者-或者！都会将函数变成表达式（）也一样
+
+// 	(function a(){
+// 		console.log('a');
+// 	})()
+// //因为a反正也找不到了干脆不写了 函数执行符号写在里面和外面一样
+// 	(function (){
+// 		console.log('a');
+// 	}())
+	
+	// 1.
+	// var test = (function a(){
+		
+	// }
+	// )
+	// console.log(test);
+
+	// 2.
+	// (function a(){
+	//  })
+	// console.log(typeof(a));
+
+	// var x = 1;
+	// if (function f(){}) {
+	// 	x += typeof f;
+	// }
+	// console.log(x);
+</script>
+</body>
+</html>

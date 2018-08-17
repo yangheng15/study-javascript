@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// Person.prototype.name = 'abc';
+		// function Person(){
+		// 	// var this = {
+		// 	// 	__proto__ : Person.prototype
+		// 	// };
+		// }
+		// var person = new Person();
+
+		// __proto__的应用
+		// function Person(){
+		// 	// var this =  {__proto__:Person.prototype}
+		// }
+		// Person.prototype.name = 'sunny';
+
+		// var person = new Person();
+		// Person.prototype = {
+		// 	name : 'cherry'
+		// }
+
+		//Call方法
+		// function Person(name,age){
+		// 	this.name = name;
+		// 	this.age = age;
+		// }
+
+		// var person = new Person('deng',100);
+		// var obj = {
+		// }
+		// Person.call(obj,'yang',100);
+
+		// 2.
+		// function Person(name){
+		// 	this.name = name;
+		// }
+		// function Student(name,age){
+		// 	Person.call(this,name);
+		// 	this.age = age;
+		// }
+		// var student = new Student('yang',19);
+
+		//call()和apply()都是改变this指向的区别在于传参列表不同
+
+		// 练习
+		// 1.
+		// function bb(){
+		// 	var arr = [];
+		// 	for(var i = 0; i < 10; i++){
+		// 		(function (j){
+		// 			arr[j] = function () {
+		// 			document.write(j);
+		// 		}
+		// 		}(i));
+		// 	}
+		// 	return arr;
+		// }
+
+		// var arr1 = bb();
+		// for(var i = 0; i < 10; i++){
+		// 	arr1[i]();
+		// }
+
+		// 2.运行test（）和new test（）的结果分别是什么？
+		// var a = 5;
+		// function Test() {
+		// 	a = 0;
+		// 	alert(a);
+		// 	this.a = 1;
+		// 	alert(this.a);
+		// 	var a;
+		// 	alert(a);
+		// }
+		// var test = new Test();
+		//test() --->1.a = 0  2.a = 5 3.
+		// a = 0;
+		//new test() ---> 1. a = 
+
+
+		// function Person(num) {
+		// 	// var this{}
+		// 	this.height = num;
+		// }
+		// var person = new Person();
+		// var obj = {}
+		// Person.call(obj,123);
+
+		// function Person() {
+		// 	name = "y";
+		// 	console.log(this.name);
+		// 	console.log(this);
+		// }
+		// // Person();
+		// var person = new Person;
+	</script>
+</body>
+</html>

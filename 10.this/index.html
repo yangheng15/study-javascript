@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// function foo() {
+		// 	bar.apply(null,arguments);
+		// }
+		// function bar() {
+		// 	console.log(arguments);
+		// }
+		// foo(1,2,3,4,5);
+
+		// 逗号操作符
+		// var num = (1,2);
+		// alert(num );
+
+		// (function f() {
+
+		// })
+		// console.log(typeof(f));
+
+		// this笔试题
+		// var name = "222";
+		// var a = {
+		// 	name: "111",
+		// 	say: function () {
+		// 		console.log(this.name);
+		// 	} 
+		// }
+		// // Object.prototype.name = "121";
+		// var fun = a.say;
+		// fun()//222
+		// a.say()//111
+		// var b = {
+		// 	name:"333",
+		// 	say:function (fun) {
+		// 		fun();
+		// 	}
+		// }
+		// b.say(a.say);//222
+		// b.say = a.say;
+		// b.say();//333
+
+		// Go{
+		// 	name:"222",
+		// 	a:undefined,
+		// 	fun:undefined,
+		// 	b:undefined,
+
+		// }
+
+	
+			// var name = "123";
+			// // var obj = {
+			// // 		name:"222",
+			// // 		say:function () {
+			// // 		console.log(this.name);
+			// // 	}
+			// // }
+			// var fn = function () {
+			// 		console.log(this.name);
+			// 	}();
+			
+
+			// // 100的阶乘用立即执行函数写
+			// var num = (function (n) {
+			// 	if(n==1){
+			// 		return 1;
+			// 	}
+			// 	return n * arguments.callee(n-1);
+			// } (100));
+		 // console.log(num);
+
+		 // 对象的克隆
+		 // var person = {
+		 // 	name:"yang",
+		 // 	height:130,
+		 // 	sex:"男",
+		 // }
+
+		 // var person1 = {
+
+		 // }
+
+		 // function clone(origin, target) {
+		 // 	var target = target || {};
+		 // 	for(var prop in origin){
+		 // 		target[prop] = origin[prop];
+		 // 	}
+		 // 	return target;
+		 // }
+		 // console.log(clone(person,person1));
+
+
+		 // Object.prototype.age = 100;
+		 // window.
+		 // var Person = {
+		 // 	name:"yang",
+		 // 	say: function() {
+		 // 		this.age = 101;//this--->Person
+		 // 		console.log(this.age);
+		 // 	}
+		 // }
+		 // Person.say();
+		 // console.log(this.age);//-->window
+
+		// function Person() {
+		// 	this.name = "yang";
+		// }
+		// Person();
+		// console.log(this.name);
+
+		// Person.prototype.sex = "男";
+		// function Person(name,age) {
+		// 	// var this = Object.create(Person.prototype);
+		// 	this.name = name;
+		// 	this.age = age;
+		// }
+		// var person = new Person();
+		// function Person1(name,age){
+		// 	Person.apply(this,arguments);
+		// }
+		// var person1 = new Person1("yang",18);
+
+		function f
+	</script>
+</body>
+</html>

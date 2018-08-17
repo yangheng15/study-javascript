@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+	// 对象的创建方法
+	// 1.var obj = {} 	plainObject 对象字面量/对象直接量
+	// 2.构造函数
+	// 	1)函数自带的构造函数 object（）； 		var obj = new object();
+	// 	2）自定义
+	// 	大坨峰式命名规则
+	// 	function Person(){
+
+	// 	}
+	// 	var person1 = new Person;
+
+	// 构造函数内部原理
+	// 1.在函数体最前面隐式的加上this = {}
+	// 2.执行this.xxx=xxx;
+	// 3.隐式的返回this
+
+	// function Person(name,height){
+	// 	var a = "I am eating meat!";
+	// 	var that = {};
+	// 	that.name = 'yh';
+	// 	that.height = 120;
+	// 	that.eating = function (){
+	// 		console.log(a);
+	// 	}
+	// 	return that;
+	// }
+
+	// var person = Person();
+
+	//原始值可以可以做对象除了undefined 和 unll
+	// var num = new Number(123);
+	// console.log(num);
+
+	// 练习题1
+	// var str = 'abc';
+	// str.length = 2;
+	// //new String('abc').length = 2; delete
+	// //new String('abc').length
+	// console.log(str);//答案是abc因为
+
+	// 2.
+	var str = "abc";
+	str += 1;
+	var test = typeof(str);
+	if(test.length == 6){
+		test.sign = "typeof 的类型有可能是String类型";
+	}
+	console.log(test.sign);
+
+
+	</script>
+</body>
+</html>

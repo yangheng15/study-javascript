@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 1.继承方法一
+		// function Person(name,age){
+		// 	this.name = name;
+		// 	this.age = age;
+		// }
+
+		// var person = new Person('deng',100);
+		// var obj = {
+		// }
+		
+		// Person.call(obj,'yang',100);
+
+		// 2.公有原型 --缺点当给son.prototype加属性的时候，父亲也会改
+		// Father.prototype.lastName = "yang";
+		// function Father() {
+
+		// }
+		// function Son() {
+
+		// }
+		// function inherit(Target,Origin) {
+		// 	Target.prototype = Origin.prototype;
+		// }
+		// inherit(Son,Father);
+		// var father = new Father();
+		// var son = new Son();
+		// console.log(son.lastName);
+
+		// 3.最终继承
+		// Father.prototype.lastName = "yang";
+		// function Father() {
+		// 	// var this = Object.create(Father.prototype)  -->{
+		// 	// 	__proto__ : Father.prototype,
+		// 	// 	constuctor :fun{},
+		// 	// }
+		// 	this.money = 1000;
+		// }
+		// function Son() {
+		// 	// var this = Object.create(Son.prototype)  -->{
+		// 	// 	__proto__ : Son.prototype,
+		// 	// 	constuctor :fun{},
+		// 	// }
+		// }
+		// function inherit(Target,Origin) {
+		// 	function middle() {}
+		// 	middle.prototype = Origin.prototype;
+		// 	Target.prototype = new middle();
+		// 	Target.prototype.constuctor = Target;
+		// 	Target.prototype.uber = Origin.prototype;
+		// }
+		// inherit(Son,Father);
+		// var father = new Father();
+		// var son = new Son();
+		// console.log(son.lastName);
+		//new 不能写在前面因为var obj = {name:"a"};var obj1 = obj; obj = {name:"b"}; __proto__也存着地址
+
+		// 4.高级
+		// Father.prototype.lastName = "yang";
+		// function Father() {
+
+		// }
+		// function Son() {
+
+		// }
+		// var inherit = (function () {
+		// 	var middle = function() {}
+		// 	return function (Target,Origin) {
+		// 		middle.prototype = Origin.prototype;
+		// 		Target.prototype = new middle();
+		// 		Target.prototype.constuctor = Target;
+		// 		Target.prototype.uber = Origin.prototype;
+		// 	}
+		// }());
+		// inherit(Son,Father);
+		// var father = new Father();
+		// var son = new Son();
+		// console.log(son.lastName);
+
+		// 对象的枚举
+		 // var obj = {
+		 // 	name:123,
+		 // 	sex:1,
+		 // 	height:123,
+		 // }
+		 // for(var key in obj){
+		 // 	console.log(obj[key])//这里不能用obj.key 因为它会隐式的变成 ---> obj['key'];
+		 // }
+
+		 //不想遍历原型链上的
+		 // var obj = {
+		 // 	name:123,
+		 // 	sex:1,
+		 // 	height:123,
+		 // 	__proto__ : {
+		 // 		lastName : "yang"
+		 // 	}
+		 // }
+		 // for(var key in obj){
+		 // 	if(obj.hasOwnProperty(key)){
+		 // 		console.log(obj[key]);
+		 // 	}
+		 	
+		 // }
+
+		 //instanceof
+		 A instanceof B------看A对象的原型链上有没有B的原型
+	</script>
+</body>
+</html>
