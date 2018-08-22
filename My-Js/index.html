@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自己写的方法</title>
+</head>
+<body>
+    <script>
+         // 封装type 可以弥补typeof不足之处
+        function type(somethink) {
+            var ret = typeof (somethink);
+            var template = {
+                "[object Array]" : "array",
+                "[object Object]" : "object",
+                "[object Number]" : "object-Number",
+                "[object String]" : "object-String",
+                "[object Boolean]" : "object-Boolean"
+            }
+            if (somethink == null) {
+                return "null";
+            }
+            if (ret == "object") {
+                var toStr = Object.prototype.toString.call(somethink);
+                return template[toStr];
+            } else if (ret == "function") {
+                return "function";
+            }else {
+                return ret;
+            }
+        }
+    
+        // 数组去重对象方法
+        var arr = [1,2,3,3,4,2,1];
+        Array.prototype.unique = function () {
+            var temp = {},
+                arr = [],
+                len = this.length;
+            for(var i = 0; i < len; i ++){
+                if(!temp[this[i]]){
+                    temp[this[i]] = "站位";
+                    arr.push(this[i]);
+                }
+            }
+            return arr;
+        }
+        // 数组去重循环方法
+        var arr = [1, 22, 3, 1, 3, 5, 5];
+        Array.prototype.unique = function () {
+            var len = this.length;
+            for (var i = 0; i < len; i++) {
+                for (var j = i + 1; j < len; j++) {
+                    if (this[i] == this[j]) {
+                        this.splice(j, 1);
+                    }
+                }
+            }
+            return this;
+        }
+    </script>
+</body>
+</html>

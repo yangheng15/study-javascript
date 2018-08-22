@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            // 深度克隆
+            var obj = {
+                name:"abc",
+                age:123,
+                card : {
+                    name :"bcd",
+                    son : {
+                        name : "aaa"
+                    }
+                }
+            }
+            function deepClone(target,origin) {
+                var target = target || {},
+                toStr = Object.prototype.toString;
+                for(var prop in origin){
+                    if(origin.hasOwnProperty(prop)){
+                        if(origin[prop] !== 'null' && typeof(origin[prop]) == 'object'){
+                            // if(toStr.call(prop) == "[object Array]"){
+                            //     target[prop] = [];
+                            // }else{
+                            //     target[prop] = {};
+                            // }
+                            target[prop] = toStr.call(prop) == "[object Array]" ? [] : {};
+                            deepClone(target[prop],origin[prop]);
+                        }else{
+                            target[prop] = origin[prop];
+                        }
+                    }
+                }
+                return target;
+            }
+            var obj1 = {}
+            var nObj1 = deepClone(obj1,obj);
+                
+            
+            // 遍历对象for(var prop in obj);
+            // 1.判断是不是原始值 -->typeof()
+            // 2.判断数组还是对象 -->toStirng()   instanceof  constructor
+            // 3.建立相应的数组或对象
+            // 递归
+    </script>
+</body>
+</html>

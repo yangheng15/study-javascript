@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 原型链上编程，数组去重
+        // var arr = [1, 22, 3, 1, 3, 5, 5];
+        // Array.prototype.unique = function () {
+        //     var len = this.length;
+        //     for (var i = 0; i < len; i++) {
+        //         for (var j = i + 1; j < len; j++) {
+        //             if (this[i] == this[j]) {
+        //                 this.splice(j, 1);
+        //             }
+        //         }
+        //     }
+        //     return this;
+        // }
+
+        //type封装
+
+        // function type(somethink) {
+        //     if (somethink == null) {
+        //         return "null";
+        //     }
+        //     if (typeof (somethink) == "object") {
+        //         var toStr = Object.prototype.toString.call(somethink);
+        //         switch (toStr) {
+        //             case "[object Array]":
+        //                 return "object-Array";
+        //                 break;
+        //             case "[object Object]":
+        //                 return "object-Object";
+        //                 break;
+        //             case "[object Number]":
+        //                 return "object-Number";
+        //                 break;
+        //             case "[object String]":
+        //                 return "object-String";
+        //                 break;
+        //             case "[object Boolean]":
+        //                 return "object-Boolean";
+        //                 break;
+        //         }
+        //     } else if (typeof (somethink) == "function") {
+        //         return "function";
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

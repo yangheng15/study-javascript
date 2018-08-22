@@ -138,16 +138,29 @@
 	// }
 
 	// 9.
-	var bar = {a : "002"};
-	function print() {
-		bar.a = 'a';
-		Object.prototype.b = 'b';
-		return function inner() {
-			console.log(bar.a);
-			console.log(bar.b);
-		}
-	}
-	print()();
+	// var bar = {a : "002"};
+	// function print() {
+	// 	bar.a = 'a';
+	// 	Object.prototype.b = 'b';
+	// 	return function inner() {
+	// 		console.log(bar.a);
+	// 		console.log(bar.b);
+	// 	}
+	// }
+	// print()();
+
+	// 10.
+	// var str = "hello 杨";
+	// function retBytes(str) {
+	// 	var num = str.length;
+	// 	for(var i = 0;i < str.length; i ++){
+	// 		if(str.charCodeAt(i) > 255){
+	// 			num ++;
+	// 		}
+	// 	}
+	// 	return num;
+	// }
+	// var bytes = retBytes(str);
 	</script>
 </body>
 </html>

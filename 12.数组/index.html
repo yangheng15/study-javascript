@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // var arr1 = new Array(10);  //创建长度为10的空数组而不是arr = [10]
+    // var arr = [1,2,3,4,5,6];
+    // arr[11];//undefined;    
+
+    // 改变原数组
+    // push,pop,shift,unshift,sort,reverse,
+    // splice
+    // push()源码
+    // var arr = [1,2,3,4,5,6];
+    // Array.prototype.push = function () {
+    //     var len = this.length;
+    //     for(var i = 0; i < arguments.length; i ++){
+    //         this[len] = arguments[i];
+    //     }
+    //     return ++len;
+    // }
+    // console.log(arr.push(7));
+   
+    // pop()方法 把数组的最后一位剪切出来不能传参
+
+    // unshift();和push()一样在数组前面加
+    // shift()在前面减
+
+    // reverses();逆转顺序
+
+    // splice(从第几位开始，截取多少长度，在切口处添加新的数据);
+    // var arr = [1,2,3,5];
+    // arr.splice(3,0,4);
+
+    // sort()
+    // var arr = [1,3,10,10,7];//比较的是阿斯克码而不是真正的数值
+    // 看返回值 1.当返回值为负数时，那么前面得数放在前面
+    //         2.为正数，那么后面的数在前
+    //         3.为0，不动
+
+    // arr.sort(function (a,b) {
+    //     // if(a > b){
+    //     //     return 1;
+    //     // }else{
+    //     //     return -1;
+    //     // }
+
+    //     // return a - b;  //升序
+    //     // return b - a;  //降序序
+    // });
+
+    // 练习题：给一个有序的数组，乱序
+    // var arr = [1,2,3,4,5,6];
+    // arr.sort(function () {
+    //     return 0.5 - Math.random();
+    // });
+
+    // 不改变原数组
+    // concat 拼接数组
+
+    // var arr = [1,2,3,4];
+    // var arr1 = [5,6,7,8,9];
+    // var newArr = arr.concat(arr1);
+
+    // slice(从该位开始截取，截取到该位)
+        // slice(从第几位开始一直到最后) 一位参数
+    // var arr = [1,2,3,4,5];
+    // console.log(arr.slice(1,2));
+
+    // join("-");返回是字符串
+    // var arr = [1,2,3,4,5];
+    // var str = arr.join("-");
+    // console.log(str.split("-"));
+    // split()返回数组
+    // 将一堆字符串连接一起
+    // var str = "sfdf";
+    // var str1 = "sfdksf";
+    // var str2 = "ojcsd";
+    // var strFinal
+    // var arr = [str,str1,str2];
+    // arrFinal = arr.join("");
+
+
+    // 类数组
+        //  属性要为索引（数字）属性，必须有length属性，最好加上push
+        var obj = {
+            "0" : "a",
+            "1" : "b",
+            "length" : 2,
+            "push" : Array.prototype.push,
+            "splice" : Array.prototype.splice
+        }
+
+        //练习题
+        // var obj = {
+        //     "2" : "a",
+        //     "3" : "b",
+        //     "length" : 2,
+        //     "push" : Array.prototype.push
+        // }
+        // obj.push("c");
+        // obj.push("a");
+    </script>
+</body>
+</html>
