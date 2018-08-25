@@ -45,7 +45,8 @@
             }
             return arr;
         }
-        // 数组去重循环方法
+        
+        // 数组去重循环方法  (重复不能超过2)
         var arr = [1, 22, 3, 1, 3, 5, 5];
         Array.prototype.unique = function () {
             var len = this.length;
@@ -58,6 +59,43 @@
             }
             return this;
         }
+
+        //个字符串[a-z]组成，请找出该字符串第一个只出现一次的字母；
+		var str = "qiqiqwiawieeoorcrppttuuyyppqooww";
+		String.prototype.first = function () {
+			var flag = 1;
+			var temp = {},
+                len = this.length;
+            for(var i = 0; i < len; i ++){
+                if(!temp[this[i]] ){
+                    temp[this[i]] = 1;
+                }else{
+					temp[this[i]] = ++temp[this[i]];
+				}
+			}
+			for(var prop in temp){
+				if(temp[prop] == 1){
+					alert(prop);
+					break;
+				}
+			}
+        }
+
+        //字符串去重
+		var str = "qiqiqwiawieeoorcrppttuuyyppqooww";
+		String.prototype.quChong = function () {
+			var temp = {},
+				arr = [],
+				len = str.length;
+			for(var i = 0;i < len;i ++){
+				if(!temp[this[i]]){
+					temp[this[i]] = "站位";
+					arr.push(this[i]);
+				}
+			}
+			arr.join();
+			return arr;
+		}
     </script>
 </body>
 </html>
