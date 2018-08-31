@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<div></div>
+		<p></p>
+		<a href=""></a>
+		<ul>
+			<li></li>
+			<li></li>
+		</ul>
+		<span></span>
+	</div>
+	<script type="text/javascript">
+		var a = document.getElementsByTagName('a')[0];
+
+		function retBotherNode (e,num) {
+			while(num){
+				if(num > 0){
+					if (e.nextElementSibling) {
+						e = e.nextElementSibling;
+					}else{
+						e = e.nextSibling;
+						while(e && e.nodeType != 1) {
+							e = e.nextSibling;
+						}
+					}
+					
+					num --;
+				}else{
+					if (e.previousElementSibling) {
+						e = e.previousElementSibling;
+					}else{
+						e = e.previousSibling;
+						while(e.nodeType != 1) {
+							e = e.previousSibling;
+						}
+					}
+					
+					num ++;
+				}
+			}
+			return e;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+		<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<p></p>
+		<div>
+			<span>
+				<a href=""></a>
+			</span>
+		</div>
+		<a href=""></a>
+	</div>
+
+	<script>
+		var a = document.getElementsByTagName('a')[0];
+
+		function retNode (element,num) {
+			for(var i = 1;i <= num;i ++){
+				element = element.parentNode;
+			}
+			return element;
+		}
+	</script>			
+</body>
+</html>

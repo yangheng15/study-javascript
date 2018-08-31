@@ -96,6 +96,80 @@
 			arr.join();
 			return arr;
 		}
+
+        //返回元素的兄弟节点，num大于0返回后面的小于0返回前面的等于0返回自己
+        function retBotherNode (e,num) {
+            while(num){
+                if(num > 0){
+                    if (e.nextElementSibling) {
+                        e = e.nextElementSibling;
+                    }else{
+                        e = e.nextSibling;
+                        while(e && e.nodeType != 1) {
+                            e = e.nextSibling;
+                        }
+                    }
+                    
+                    num --;
+                }else{
+                    if (e.previousElementSibling) {
+                        e = e.previousElementSibling;
+                    }else{
+                        e = e.previousSibling;
+                        while(e.nodeType != 1) {
+                            e = e.previousSibling;
+                        }
+                    }
+                    
+                    num ++;
+                }
+            }
+            return e;
+        }
+
+        //返回元素祖先节点
+        function retNode (element,num) {
+            for(var i = 1;i <= num;i ++){
+                element = element.parentNode;
+            }
+            return element;
+        }
+
+        //封装函数insertAfter();功能类似InsertBefore()
+        Element.prototype.insertAfter = function (newE,oldE) {
+            if(oldE){
+                this.appendChild(newE);
+            }
+            oldE = oldE.nextElementSibling;
+            this.insertBefore(newE,oldE);
+        }
+
+        //返回当前时刻年月日时分秒
+        function NowTime () {
+            date = new Date();
+            year = date.getFullYear();
+            month = date.getMonth() + 1;
+            day = date.getDate();
+            hour = date.getHours();
+            minutes = date.getMinutes();
+            seconds = date.getSeconds();
+            return year + "年" + month + "月" + day + "日" + hour + "时" + minutes + "分" + seconds + "秒";
+        }
+
+        //获取滚动条位置
+        function getScrollOffset () {
+            if(window.pageXOffset) {
+                return {
+                    x : window.pageXOffset,
+                    y : window.pageYOffset
+                }
+            }else {
+                return {
+                    x : document.body.scrollLeft + document.documentElement.scrollLeft,
+                    y : document.body.scrollTop + document.documentElement.scrollTop
+                }
+            }
+        }
     </script>
 </body>
 </html>
