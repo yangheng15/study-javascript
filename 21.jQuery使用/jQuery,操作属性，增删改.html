@@ -89,6 +89,8 @@
             $('div').append(p);
 
             $('div').prepend('<p><p>')
+
+            $('div').appendTo('#id') //可以写选择器 或者jq对象
                 
         删除元素
          DOM
@@ -118,10 +120,30 @@
         jQuery事件处理
         面试题：在jq 有多少个事件绑定方法 区别是什么
             bind() unbind()
+            可以绑定多个处理函数 相似与 addEventListener(type,fn,false);
             $('div').bind('click',function () {
 
                 $(this).unbind();
             })
+
+            one() 只能点击一次
+            用法：$('btn').one('click',function () {
+
+            })
+            简化：
+            jq.click(fun)
+            jq.mouseover(fun)
+            jq.keyup(fun)
+
+            事件代理
+            $('parent').delegate(什么元素可写选择器，什么事件，处理函数)
+            $('parent').delegate('.btn','click',function(e) {
+
+            })
+
+            双击出发事件
+            $("button").dblclick(function(){
+            });
     </script>
 </body>
 </html>
