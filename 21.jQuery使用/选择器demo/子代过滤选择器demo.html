@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <table width='100%' border="1px">
+        <thead>
+            <tr>
+                <th>标号</th>
+                <th>姓名</th>
+                <th>工资</th>
+                <th>生日</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;</td>
+            </tr>
+        </tbody>
+
+
+
+    </table>
+    <script src="./jquery-1.11.3.js"></script>
+    <script>
+        $('thead:first-child').css('background-color', '#ccc');
+        $('tbody tr:nth-child(2n)').css('background-color', 'red');
+        $('tbody tr td:first-child').css('background-color', 'orange');
+    </script>
+</body>
+
+</html>

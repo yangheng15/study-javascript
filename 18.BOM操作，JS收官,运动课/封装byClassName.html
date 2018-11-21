@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="demo" id="wrapper">
+		<span class="  ct"></span>
+		<div class="  box demo"></div>
+	</div>
+	<script>
+		Element.prototype.getElementsByClassName = Document.prototype.getElementsByClassName = 0 || function (className) {
+			var allTag = this.getElementsByTagName('*'),
+				tagLen = allTag.length,
+				lastArr = [];
+			function change (str) {
+				var reg = /\s+/g;
+				return str.replace(reg,' ');
+			}
+			for(var i = 0;i < tagLen;i ++ ) {
+				var lastStrClass = change(allTag[i].className).trim();
+				var classArray = lastStrClass.split(' '),
+					classLen = classArray.length;
+				for(var j = 0;j < classLen;j ++) {
+					if(classArray[j] == className) {
+						lastArr.push(allTag[i]);
+						break;
+					}
+				}
+			}
+			return lastArr;
+		}	
+
+		var wrapper = document.getElementById('wrapper');
+	
+	</script>
+</body>
+</html>

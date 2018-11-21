@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// function Grand () {
+		// 	this.name = 'yang';
+		// }
+		// Grand.age = '99';
+		// var grand = new Grand ();
+
+		// Father.prototype = grand;
+		// function Father () {
+
+		// }
+		// var father = new Father();
+
+		// function Son () {
+
+		// }
+		// var son = new Son();
+/*---------------------call(this)--------------------*/
+		// function Father () {
+		// 	this.name = 'yang';
+		// 	this.age = '40';
+		// }
+		// var father = new Father();
+		// var son = new Son ();
+		// function Son () {
+		// 	//var this = Object.create(Son.prototype)
+		// 	Father.call(this)
+		// }
+
+/*------------------------共享原型-------------------*///缺点改了Son.prototype 就改了Father.prototype
+		// Father.prototype.name = 'yang';
+		// function Father () {
+		// 	this.age = 40;
+		// }
+		// function Son () {
+
+		// }
+		// Son.prototype = Father.prototype;
+		// var father = new Father();
+		// var son = new Son();
+/*----------------------最终继承---------------------*/
+//父亲和儿子都有共有的属性也有私有的属性互不影响
+		Father.prototype.name = 'yang';
+		function Father () {
+
+		}
+
+		function Son () {
+
+		}
+		function inherit (target,origin) {
+			function Middle () {};
+			Middle.prototype = origin.prototype;
+			target.prototype = new Middle();
+			Son.prototype.constructor = target;
+			Son.prototype.uber = origin.prototype;
+		}
+		inherit(Son,Father);
+		var father = new Father();
+		var son = new Son();
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>123</button>
+    <script src="jquery-1.11.3.js"></script>
+    
+    <script>
+
+        //基本选择器
+        $('*')
+        $('#id')
+        $('.class')
+        $('div')
+        $('div,span,p')
+         
+        
+        //层级选择器
+        $('parent child')
+        $('parent>child')
+        $('parent+span')
+        $('parent~nextAll')//元素后面的所有元素
+
+       //属性选择器
+        $('div[title*="#"]') //^ #在最前面 $ #在最后面 ! #不存在  * #存在
+
+        //表单元素选择器
+        :text :password :radio :checkbox :file :submit :reset :button :image :checked :selected
+        :disabled :enabled
+
+        //基本过滤选择器
+        :first :last :eq(i) :lt(i)小于i :gt(i)大于i :odd :even  //i 从0开始
+        
+        //子代过滤选择器
+        :first-child :last-child :nth-child(i/odd/even/3n-1) :only-child   //i 从1开始
+
+        //内容过滤选择器
+        :contains()  innerHTML包含指定文本
+        :empty          innerHTML 空
+        :parent  选择器选取所有包含子节点或文本节点的父元素
+        :has()          存在指定选择器
+        
+        //可见性选择器
+        ：hidden  比可见 display: none  input type="hidden"
+        :visible 可见
+    </script>
+</body>
+</html>

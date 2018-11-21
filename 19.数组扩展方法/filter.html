@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //filter 过滤
+        var personArr = [
+            {name:'王刚',scr:'./img/dk.png',des:'颈椎不好',sex:'男'},
+            {name:'李帅',scr:'./img/dk.png',des:'颈多收不好',sex:'女'},
+            {name:'王五',scr:'./img/dk.png',des:'颈地好',sex:'女'},
+            {name:'赵柳',scr:'./img/dk.png',des:'的空间十分好的好',sex:'男'}
+        ];
+        var newArr1 = personArr.filter(function (ele,index,self) {
+            // if(ele.sex == '男') {
+            //     return true;
+            // }else {
+            //     return false;
+            // }
+            ele.sex == '男';//注重返回值，如果为true将会被保存到新数组里false则不保存
+        },{name:'cst'});
+
+        Array.prototype.myFilter = function (func) {
+            var _arr = this,
+            len = _arr.length,
+            param2 = arguments[1] || window,
+            newArr = [];
+            for(var i = 0;i < len;i ++) {
+                func.apply(param2,[_arr[i],i,_arr]) ? newArr.push(_arr[i]) : '';
+            }
+            return newArr;
+        }
+        var arr = personArr.myFilter(function (ele,index,self) {
+            return ele.sex  == '男';
+        },{name:'cst'});
+    </script>
+</body>
+</html>

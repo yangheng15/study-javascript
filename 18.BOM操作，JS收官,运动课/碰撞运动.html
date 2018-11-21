@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var oDiv = document.getElementsByTagName('div')[0];
+        oDiv.onclick = function () {
+            startMove(this);
+        }
+        function startMove(obj) {
+            clearInterval(obj.timer);
+            var speedX = 6;
+            var speedY = 8;
+            var g = 6;
+            obj.timer = setInterval(function () {
+                speedY += g;
+                var newLeft = obj.offsetLeft + speedX ;
+                var newTop = obj.offsetTop + speedY ;
+                // console.log(speedY);
+                if(newTop >= getViewportOffset().H - obj.offsetHeight) {
+                    // console.log(speedY);//31.72 0.7
+                    speedY *= -1;
+                    speedY *= 0.8;
+                    speedX *= 0.8;
+                    // console.log(speedY); 
+                    newTop = getViewportOffset().H - obj.offsetHeight;
+                }
+                if(newTop <= 0) {
+                    speedY *= -1;
+                    newTop = 0;
+                    speedY *= 0.8;
+                    speedX *= 0.8;
+                }
+                if(newLeft >= getViewportOffset().W - obj.offsetWidth) {
+                    speedX *= -1;
+                    newLeft = getViewportOffset().W - obj.offsetWidth;
+                    speedY *= 0.8;
+                    speedX *= 0.8;
+                }
+                if(newLeft <= 0) {
+                    speedX *= -1;
+                    newLeft = 0;
+                    speedY *= 0.8;
+                    speedX *= 0.8;
+                }
+                obj.style.left = newLeft + 'px';
+                obj.style.top = newTop + 'px';
+            },30)
+        }
+
+        function getViewportOffset () {
+            if(document.documentElement.clientwidth) {
+                return {
+                    W : document.documentElement.clientWidth,
+                    H : document.documentElement.clientHeight
+                }
+            }else {
+                if(document.compatMode == 'BackCompat') {
+                    return {
+                        W : document.body.clientWidth,
+                        H : document.body.clientHeight
+
+                    }
+                }else {
+                    return {
+                        W : window.innerWidth,
+                        H : window.innerHeight
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

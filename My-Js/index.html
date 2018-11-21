@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>自己写的方法</title>
 </head>
+
 <body>
     <script>
-         // 封装type 可以弥补typeof不足之处
+        // 封装type 可以弥补typeof不足之处
         function type(somethink) {
             var ret = typeof (somethink);
             var template = {
-                "[object Array]" : "array",
-                "[object Object]" : "object",
-                "[object Number]" : "object-Number",
-                "[object String]" : "object-String",
-                "[object Boolean]" : "object-Boolean"
+                "[object Array]": "array",
+                "[object Object]": "object",
+                "[object Number]": "object-Number",
+                "[object String]": "object-String",
+                "[object Boolean]": "object-Boolean"
             }
             if (somethink == null) {
                 return "null";
@@ -26,26 +28,93 @@
                 return template[toStr];
             } else if (ret == "function") {
                 return "function";
-            }else {
+            } else {
                 return ret;
             }
         }
-    
-        // 数组去重对象方法
-        var arr = [1,2,3,3,4,2,1];
-        Array.prototype.unique = function () {
+
+        // 数组去重方法1-对象
+        var arr = [1, 2, 3, 3, 4, 2, 1];
+        Array.prototype.unique1 = function () {
             var temp = {},
                 arr = [],
                 len = this.length;
-            for(var i = 0; i < len; i ++){
-                if(!temp[this[i]]){
+            for (var i = 0; i < len; i++) {
+                if (!temp[this[i]]) {
                     temp[this[i]] = "站位";
                     arr.push(this[i]);
                 }
             }
             return arr;
         }
-        
+
+        //字符串去重
+        var str = "qiqiqwiawieeoorcrppttuuyyppqooww";
+        String.prototype.quChong = function () {
+            var temp = {},
+                arr = [],
+                len = str.length;
+            for (var i = 0; i < len; i++) {
+                if (!temp[this[i]]) {
+                    temp[this[i]] = "站位";
+                    arr.push(this[i]);
+                }
+            }
+            str = arr.join('');
+            return str;
+        }
+
+        //数组和字符串去重方法-indexOf
+        // var arr = [1, 2, 3, 3, 4, 2, 1];
+        // var str = '1233421';
+        function unique2 (param) {
+            var newArr = [];
+            var len = param.length;
+            var ret;
+            for(var i = 0;i < len;i ++) {
+                if(newArr.indexOf(param[i]) == -1) {
+                    newArr.push(param[i]);
+                }
+            }
+            ret = typeof(param) == 'string' ? newArr.join('') : newArr;
+            return ret;
+        }
+        // console.log(unique2(str));
+
+        //数组去重-排序方法
+        // var arr = [1, 2, 35, 3, 4, 2, 1];;
+        // console.log(unique4(arr));
+        function unique3 (arr) {
+            arr.sort(function (a,b) {
+                return a - b;
+            });
+            var newArr = [arr[0]];
+            var len = arr.length;
+            for(var i = 0;i < len; i ++) {
+                if(arr[i] !== newArr[newArr.length - 1]) {
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+
+        //数组去重-for循环方法
+        // var arr = [1, 2, 3, 3, 4, 2, 1];
+        // console.log(unique3(arr));
+        function unique4 (arr) {
+            var newArr = [];
+            var len = arr.length;
+            for(var i = 0;i < len;i ++) {
+                for(var j = i + 1;j < len;j ++) {
+                    if(arr[i] === arr[j]) {// 0 , 6
+                        j = ++i;
+                    }
+                }
+                newArr.push(arr[i]);
+            }
+            return newArr;
+        }
+
         // 数组去重循环方法  (重复不能超过2)
         var arr = [1, 22, 3, 1, 3, 5, 5];
         Array.prototype.unique = function () {
@@ -61,91 +130,75 @@
         }
 
         //个字符串[a-z]组成，请找出该字符串第一个只出现一次的字母；
-		var str = "qiqiqwiawieeoorcrppttuuyyppqooww";
-		String.prototype.first = function () {
-			var flag = 1;
-			var temp = {},
+        var str = "qiqiqwiawieeoorcrppttuuyyppqooww";
+        String.prototype.first = function () {
+            var flag = 1;
+            var temp = {},
                 len = this.length;
-            for(var i = 0; i < len; i ++){
-                if(!temp[this[i]] ){
+            for (var i = 0; i < len; i++) {
+                if (!temp[this[i]]) {
                     temp[this[i]] = 1;
-                }else{
-					temp[this[i]] = ++temp[this[i]];
-				}
-			}
-			for(var prop in temp){
-				if(temp[prop] == 1){
-					alert(prop);
-					break;
-				}
-			}
+                } else {
+                    temp[this[i]] = ++temp[this[i]];
+                }
+            }
+            for (var prop in temp) {
+                if (temp[prop] == 1) {
+                    alert(prop);
+                    break;
+                }
+            }
         }
 
-        //字符串去重
-		var str = "qiqiqwiawieeoorcrppttuuyyppqooww";
-		String.prototype.quChong = function () {
-			var temp = {},
-				arr = [],
-				len = str.length;
-			for(var i = 0;i < len;i ++){
-				if(!temp[this[i]]){
-					temp[this[i]] = "站位";
-					arr.push(this[i]);
-				}
-			}
-			arr.join();
-			return arr;
-		}
-
         //返回元素的兄弟节点，num大于0返回后面的小于0返回前面的等于0返回自己
-        function retBotherNode (e,num) {
-            while(num){
-                if(num > 0){
+        function retBotherNode(e, num) {
+            while (num) {
+                if (num > 0) {
                     if (e.nextElementSibling) {
                         e = e.nextElementSibling;
-                    }else{
+                    } else {
                         e = e.nextSibling;
-                        while(e && e.nodeType != 1) {
+                        while (e && e.nodeType != 1) {
                             e = e.nextSibling;
                         }
                     }
-                    
-                    num --;
-                }else{
+
+                    num--;
+                } else {
                     if (e.previousElementSibling) {
                         e = e.previousElementSibling;
-                    }else{
+                    } else {
                         e = e.previousSibling;
-                        while(e.nodeType != 1) {
+                        while (e.nodeType != 1) {
                             e = e.previousSibling;
                         }
                     }
-                    
-                    num ++;
+
+                    num++;
                 }
             }
             return e;
         }
 
         //返回元素祖先节点
-        function retNode (element,num) {
-            for(var i = 1;i <= num;i ++){
+        function retNode(element, num) {
+            for (var i = 1; i <= num; i++) {
                 element = element.parentNode;
             }
             return element;
         }
 
         //封装函数insertAfter();功能类似InsertBefore()
-        Element.prototype.insertAfter = function (newE,oldE) {
-            if(oldE){
+        Element.prototype.insertAfter = function (newE, oldE) {
+            if (oldE) {
                 this.appendChild(newE);
             }
             oldE = oldE.nextElementSibling;
-            this.insertBefore(newE,oldE);
+            this.insertBefore(newE, oldE);
         }
 
         //返回当前时刻年月日时分秒
-        function NowTime () {
+        function NowTime() {
             date = new Date();
             year = date.getFullYear();
             month = date.getMonth() + 1;
@@ -157,19 +210,166 @@
         }
 
         //获取滚动条位置
-        function getScrollOffset () {
-            if(window.pageXOffset) {
+        function getScrollOffset() {
+            if (window.pageXOffset) {
                 return {
-                    x : window.pageXOffset,
-                    y : window.pageYOffset
+                    x: window.pageXOffset,
+                    y: window.pageYOffset
                 }
-            }else {
+            } else {
                 return {
-                    x : document.body.scrollLeft + document.documentElement.scrollLeft,
-                    y : document.body.scrollTop + document.documentElement.scrollTop
+                    x: document.body.scrollLeft + document.documentElement.scrollLeft,
+                    y: document.body.scrollTop + document.documentElement.scrollTop
                 }
+            }
+        }
+
+        //获取可视区窗口的尺寸
+        function getViewportOffset() {
+            if (window.innerWidth) {
+                return {
+                    w: window.innerWidth,
+                    h: window.innerHeight
+                }
+            } else {
+                if (document.compatMode === "BackCompat") {
+                    return {
+                        w: document.body.clientWidth,
+                        h: document.body.clientHeight
+                    }
+                } else {
+                    return {
+                        w: document.documentElement.clientWidth,
+                        h: document.documentElement.clientWidth
+                    }
+                }
+            }
+        }
+
+        //获取元素的样式 prop 是字符串形式传入  getComputedStyle后面的null可以是伪元素
+        function getStyle(elem, prop) {
+            if (window.getComputedStyle) {//ie不兼容
+                return window.getComputedStyle(elem, null)[prop];
+            } else {
+                return elem.currentStyle[prop];
+            }
+        }
+
+        //事件绑定，兼容所有浏览器
+        function addEvent(elem, type, handle) {
+            if (elem.addEventListener) {
+                elem.addEventListener(type, handle, false);
+            } else if (elem.attachEvent) {
+                elem.attachEvent('on' + type, function () {
+                    handle.call(elem);
+                });
+            } else {
+                elem['on' + type] = handle;
+            }
+        }
+
+        //封装取消冒泡函数
+        function stopBubble(e) {
+            var e = e || window.event;
+            if (e.stopPropagation) {
+                e.stopPropagation():
+            } else {
+                event.cancelBubble = true;
+            }
+        }
+
+        //封装阻止默认事件
+        function cancelHandler(e) {
+            var e = e || window.event;
+            if (e.preventDefault) {
+                e.preventDefault();
+            } else {
+                e.returnValue = false;
+            }
+        }
+
+        //元素拖拽
+        // function drag (elem) {
+        //     var disX,
+        //         disY;
+        //     elem.onmousedown = function (e) {
+        //         var event = e || window.event;
+        //         disX = event.pageX - parseInt(elem.style.left);
+        //         disY = event.pageY - parseInt(elem.style.top);
+        //         document.onmousemove = function (event) {
+
+        //             elem.style.left = event.pageX - disX + 'px';
+        //             elem.style.top = event.pageY - disY + 'px';
+        //         }
+        //         elem.onmouseup = function () {
+        //             document.onmousemove = null;
+        //         }
+        //     }
+        // }
+
+        //js异步加载
+        function loadScript(url, callback, position) {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            if (script.readyState) {
+                script.onreadystatechange = function () {
+                    if (script.readyState == 'complete' || script.readyState == 'loaded') {
+                        callback();
+                    }
+                }
+            } else {
+                script.onload = function () {
+                    callback();
+                }
+            }
+            script.src = url;
+            document[position].appendChild(script);//下载
+        }
+
+        //封装byClassName 
+        Element.prototype.getElementsByClassName = Document.prototype.getElementsByClassName = 0 || function (className) {
+            var allTag = this.getElementsByTagName('*'),
+                tagLen = allTag.length,
+                lastArr = [];
+            function change(str) {
+                var reg = /\s+/g;
+                return str.replace(reg, ' ');
+            }
+            for (var i = 0; i < tagLen; i++) {
+                var lastStrClass = change(allTag[i].className).trim();
+                var classArray = lastStrClass.split(' '),
+                    classLen = classArray.length;
+                for (var j = 0; j < classLen; j++) {
+                    if (classArray[j] == className) {
+                        lastArr.push(allTag[i]);
+                        break;
+                    }
+                }
+            }
+            return lastArr;
+        }
+
+        // 数组 slice 方法原理
+        Array.prototype.slice = function (start, end) {
+            var result = new Array();
+            start = start || 0;
+            end = end || this.length; //this指向调用的对象，当用了call后，能够改变this的指向，也就是指向传进来的对象，这是关键
+            for (var i = start; i < end; i++) {
+                result.push(this[i]);
+            }
+            return result;
+        }
+
+        //数组forEach ()
+        Array.prototype.myForEach = function (func) {
+            var _arr = this,
+            len = _arr.length,
+            param2 = arguments[1] || window;
+            for(var i = 0;i < len;i ++) {
+                func.apply(param2,[_arr[i],i,_arr]);
             }
         }
     </script>
 </body>
+
 </html>

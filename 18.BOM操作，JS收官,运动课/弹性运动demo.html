@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+        }
+        ul {
+            width: 600px;
+            height: 80px;
+            border: 1px solid #ccc;
+            margin: 100px auto 0;
+            position: relative;
+        }
+        ul li.nav {
+            width: 148px;
+            height: 78px;
+            border: 1px solid #ff0000;
+            float: left;
+
+        }
+        .bg {
+            background-color: orange;
+            width: 150px;
+            height: 80px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="nav"></li>
+        <li class="nav"></li>
+        <li class="nav"></li>
+        <li class="nav"></li>
+        <li class="bg"></li>
+    </ul>
+    <script>
+        var oLiArray = Array.prototype.slice.call(document.getElementsByClassName('nav'),0);
+        var oBg = document.getElementsByClassName('bg')[0];
+        oLiArray.forEach(function (elem,index) {
+            elem.onmouseenter = function () {
+                var newLeft = this.offsetLeft;
+                startMove(oBg,newLeft);
+            }
+        })
+        function startMove (obj,target) {
+            clearInterval(obj.timer);
+            var speed = 40,a,u = 0.8;
+            obj.timer = setInterval(function () {
+                a = (target - obj.offsetLeft) / 8;
+                speed = speed + a;
+                speed = speed * u;
+                if(Math.abs(speed) <= 1 && Math.abs(target - obj.offsetLeft) <= 1) {
+                    clearInterval(obj.timer);
+                    obj.style.left = target + 'px';
+                }else {
+                    obj.style.left = obj.offsetLeft + speed + 'px';
+                }
+            },30)
+        }
+    </script>
+</body>
+</html>

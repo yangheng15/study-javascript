@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简单轮播图</title>
+	<link rel="stylesheet" href="LunBoTu.css">
+</head>
+<body>
+	<div class="box">
+		<div class="content">
+			<ul>
+				<li><img src="img/1.jpg"></li>
+				<li><img src="img/2.jpg"></li>
+				<li><img src="img/3.jpg"></li>
+				<li><img src="img/4.jpg"></li>
+				<li><img src="img/1.jpg"></li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var ul = document.getElementsByTagName('ul')[0];
+		var li = document.getElementsByTagName('li');
+		var len = li.length,
+			index = 0;
+		changeLeft();
+
+		function changeLeft () {
+			var timer = setInterval(function () {
+				ul.style.left = parseInt(getStyle(ul,'left')) - 10 + 'px';
+				// console.log(ul.style.left);
+				if(parseInt(getStyle(ul,'left')) % 200 == -0 && index < 4) {
+					index +=1;
+					// console.log(index);
+					setTimeout(changeLeft,1000);
+					clearInterval(timer);
+				}else if(index == 4) {
+					ul.style.left = 0 + 'px';
+					index = 0;
+					clearInterval(timer);
+					changeLeft();
+				}
+			},100)
+		}
+		
+		
+		function getStyle (elem,prop) {
+			if(window.getComputedStyle) {
+				return window.getComputedStyle(elem,null)[prop];
+			}else {
+				return elem.currentStyle[prop];
+			}
+		}
+	</script>
+</body>
+</html>

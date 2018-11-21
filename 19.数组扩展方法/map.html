@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //映射
+        //map 返回新数组 
+        var personArr = [
+            {name:'王刚',scr:'./img/dk.png',des:'颈椎不好',sex:'男'},
+            {name:'李帅',scr:'./img/dk.png',des:'颈多收不好',sex:'女'},
+            {name:'王五',scr:'./img/dk.png',des:'颈地好',sex:'女'},
+            {name:'赵柳',scr:'./img/dk.png',des:'的空间十分好的好',sex:'男'}
+        ];
+
+        var newArr = personArr.map(function (ele,index,self){
+            return ele.name + 10;
+        },{name:'yh'})
+
+
+        Array.prototype.myMap = function (func) {
+            var _arr = this,
+            len = _arr.length,
+            param2 = arguments[1] || window,
+            newArr = [];
+            for(var i = 0;i < len;i ++) {
+                newArr.push(func.apply(param2,[_arr[i],i,_arr]));
+            }
+            return newArr;
+        }
+        var arr = personArr.myMap(function (ele,index,self){
+            return ele.name + 10;
+        },{name:'yh'})
+    </script>
+</body>
+</html>

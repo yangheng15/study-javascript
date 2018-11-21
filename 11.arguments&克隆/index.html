@@ -31,7 +31,7 @@
                             //     target[prop] = {};
                             // }
                             target[prop] = toStr.call(prop) == "[object Array]" ? [] : {};
-                            deepClone(target[prop],origin[prop]);
+                            // deepClone(target[prop],origin[prop]);
                         }else{
                             target[prop] = origin[prop];
                         }

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+    
+        }
+
+        .wrapper {
+            padding: 10px 15px;
+            width: 400px;
+            border: 1px solid #ccc;
+            margin: 100px auto 0px;
+            border-radius: 6px;
+            /* position: absolute;
+            left: 50%;
+            margin-left: -200px; */
+        }
+        .wrapper .sWrapper .sText {
+            width: 220px;
+            height: 25px;
+            padding-left: 10px;
+            outline: none;
+            border-radius: 4px;
+            border: 1px solid #777;
+        }
+        .wrapper .sWrapper .btn {
+            cursor: pointer;
+            color: #3c8dff;
+            padding: 0px 5px;
+            /* margin: 0px 5px; */
+        }
+        .wrapper .sWrapper .btn.active {
+            color: #fff;
+            background-color: #3c8dff;
+            border-radius: 4px;
+            
+        }
+        .wrapper .sWrapper {
+            margin-bottom: 20px;
+        }
+        .wrapper .flWrapper {
+
+        }
+        .wrapper .flWrapper li {
+            border-bottom: 1px solid #999;
+            position: relative;
+            padding-left: 60px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .wrapper .flWrapper li img {
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 50px;
+            height: 50px;
+        }
+        .wrapper .flWrapper li .des {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sWrapper">
+            <input type="text" class="sText">
+            <span class="btn">Male</span>
+            <span class="btn">Female</span>
+            <span class="btn active">All</span>
+        </div>
+        <div class="flWrapper">
+            <ul>
+                <!-- <li>
+                    <img src="./img/xhr.jpg" alt="">
+                    <p class="name">王刚</p>
+                    <p class="des">颈椎不好</p>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+    <script>
+
+        var personArr = [
+            {name:'王刚',src:'./img/xhr.jpg',des:'颈椎不好',sex:'男',age:18},
+            {name:'李帅',src:'./img/xhr.jpg',des:'颈多收不好',sex:'女',age:24},
+            {name:'王五',src:'./img/xhr.jpg',des:'颈地好',sex:'女',age:23},
+            {name:'赵柳',src:'./img/xhr.jpg',des:'的空间十分好的好',sex:'男',age:22}
+        ];
+        
+        //init
+        var oUl = document.getElementsByTagName('ul')[0];
+        var oInput = document.getElementsByTagName('input')[0];
+        //数据渲染
+        function RenderPage (data) {
+            var htmlStr = '';
+            // console.log(data);
+            data.forEach(function (ele,index,self) {
+                htmlStr = htmlStr + '<li><img src="'+ele.src+'"></img><p class="name">'+ ele.name +'</p><p class="des">'+ ele.des+'</p></li>'
+                
+                // console.log(htmlStr);
+            });
+            oUl.innerHTML = htmlStr;
+        }
+        RenderPage(personArr);
+
+        //添加行为
+        oInput.oninput = function () {
+            var filterText = this.value;
+            RenderPage(filterArrByText(personArr,filterText));
+        }
+        
+
+        //过滤函数
+        function filterArrByText (data,text) {
+            if(!text) {
+                return personArr;
+            }else {
+                return data.filter(function (ele,index) {
+                    return ele.name.indexOf(text) != -1;
+                })
+            }
+        }
+        
+        //过滤性别
+        function filterSex (data,sex) {
+            if(!sex) {
+                return personArr;
+            }
+            return data.filter(function (ele,index) {
+                return ele.sex.indexOf(sex) != -1;
+            })
+        }
+
+        var oSpan = document.getElementsByTagName('span');
+        var newSpan = Array.prototype.slice.call(oSpan);
+        console.log(newSpan);
+        var len = oSpan.length;
+        
+        newSpan.forEach(function (ele,index){
+            ele.onclick = function () {
+                changActive(this);
+                // console.log(this.innerHTML);
+                var sex = '';
+                if(this.innerHTML == 'Male') {
+                    sex = '男';
+                }else if(this.innerHTML == 'Female'){
+                    sex = '女';
+                }
+                RenderPage(filterSex(personArr,sex));
+            }
+        })
+        function changActive(clickBtn) {
+            for(var i = 0;i < len;i ++) {
+                oSpan[i].className = 'btn';
+            }
+            clickBtn.classList.add('active');
+        }
+
+
+        //防抖函数
+        function debounce (handle,delay) {
+
+        }
+
+        debounce()
+    </script>
+</body>
+</html>

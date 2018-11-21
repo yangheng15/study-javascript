@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var personArr = [
+            {name:'王刚',scr:'./img/dk.png',des:'颈椎不好',sex:'男',age:18},
+            {name:'李帅',scr:'./img/dk.png',des:'颈多收不好',sex:'女',age:24},
+            {name:'王五',scr:'./img/dk.png',des:'颈地好',sex:'女',age:23},
+            {name:'赵柳',scr:'./img/dk.png',des:'的空间十分好的好',sex:'男',age:22}
+        ];
+        //返回一个值       参数funciton(preValue,curValue,index,sel)   ,initialValue 初始化值
+        var initialValue = {name:'yh'}
+        // var lastValue = personArr.reduce(function (preValue,curValue,index,sel) {
+        //     console.log(preValue,curValue,index,sel);
+        //     preValue.name += 1;
+        //     return preValue;
+        // },initialValue)
+
+        Array.prototype.myReduce = function (func,initialValue) {
+            var _arr = this,
+            len = this.length,
+            param2 = arguments[2] || window;
+            for(var i = 0;i < len;i ++) {
+                initiValue = func.apply(param2,[initialValue,_arr[i],i,_arr])
+            }
+            // console.log(initialValue);
+            return initialValue;
+        }
+        // var lastValue = personArr.myReduce(function (preValue,curValue,index,sel) {
+        //     console.log(preValue,curValue,index,sel);
+        //     preValue.name += 1;
+        //     return preValue;
+        // },initialValue)
+
+        var cookieStr = 'kdsljfklsdjf=dskfjkldsjflsjkfdksjf; kdjfkd=dskfjkldsjf; qqqq=kjoijsiodfsdf; qoir=lksdjfklsdjf'
+
+        function parseCookie (str) {
+            var arrCookie = str.split('; ');
+            // console.log(arrCookie);
+            var cookieObj = {};
+            arrCookie.reduce(function (preValue,curValue,index,sel) {
+                var curArr = curValue.split('=');
+                cookieObj[curArr[0]] = curArr[1];
+                return preValue;
+            },cookieObj);
+            return cookieObj;
+        }
+        var cookieObj = parseCookie(cookieStr);
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// var name = 'World';
+		// (function () {
+		//     // if (typeof name === 'undefined') {
+		//     //     var name = 'Shawn';
+		//     //     console.log('Goodbye ' + name);
+		//     // } else {
+		//     //     console.log('Hello ' + name);
+		//     // }
+		//    console.log(typeof(name) === 'undefined');
+		// })();
+
+		function funcA(data) {
+		    data.key = 'data';
+		}
+		function funcB(data) {
+		    data = {};
+		    console.log(data);
+		    data.value = 'data';
+		}
+		var data = { key: 'key', value: 'value' };
+		var str = '1';
+		funcA(data);
+		funcB(data);
+		console.log(data);
+		// console.log(data.key);
+		// console.log(data.value);
+	</script>
+</body>
+</html>

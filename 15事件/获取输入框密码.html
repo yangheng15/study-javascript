@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input {
+			width: 200px;
+			border: 2px solid #f40;
+		}
+	</style>
+</head>
+<body>
+	<input type="password">
+	<script>
+		var input = document.getElementsByTagName('input')[0];
+		input.onchange = function () {
+			console.log(input.value);
+		}
+	</script>
+</body>
+</html>

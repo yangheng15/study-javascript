@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+		}
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin-bottom: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script>
+		var oDiv = document.getElementsByTagName('div');
+		var timer = null;
+		for(var i = 0;i < oDiv.length;i ++) {
+			oDiv[i].onmouseenter = function () {
+				startMove(this,400);
+			}
+			oDiv[i].onmouseleave = function () {
+				startMove(this,100);
+			}
+		}
+		function startMove (obj,target) {
+			clearInterval(obj.timer);//每次进入函数时先清除定时器，否则多次点击会开启多个定时器
+			obj.timer = setInterval(function () {
+				var speed = obj.offsetWidth < target ? Math.ceil((target - obj.offsetWidth) / 7) : Math.floor((target - obj.offsetWidth) / 7)//想上取整，但是负的时候取为0 
+				// console.log(speed);
+				if(obj.offsetWidth === target) {
+					clearInterval(obj.timer);
+
+				}else {
+					obj.style.width = obj.offsetWidth + speed + 'px';
+				}
+			},30);
+		}
+	</script>
+</body>
+</html>

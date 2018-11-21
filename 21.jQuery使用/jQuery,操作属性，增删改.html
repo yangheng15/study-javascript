@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (1)操作元素 属性，值，内容，样式
+        设置属性：
+        Dom:
+        div.setAttrbuite()
+        div.getAttrbuite()
+
+        jQuery:
+        $('div').attr('title',"xxx");
+        $('div').attr('title'); 
+
+        操作元素内容
+        DOM:
+        div.innerHTML = "XXX";
+        var h = div.innerHTML;
+        div.innerText;
+        
+        jQuery:
+        $('div').html('xxx');
+        $('div').html();
+        $('div').html('');//设置为空
+        $('div').text('');
+        var t = $('div').text();
+        
+        DOM:
+        input.value = 'tom';
+        var val = input.value;
+        
+        jQuery:
+        $('input').val('tom');
+        $('input').val();
+
+        DOM:
+            div.style.color = '#ccc';
+            var c = div.style.color;
+            div.className = 'box';//可读取 修改一组样式
+            div.classList.add();
+             
+        jQuery
+            $('div').css('color','#ccc');
+            $('div').css({
+            'border-top-left-radius':'4px',
+             borderBottomLeftRadius:'4px'
+            });//可以传对象进去样式可以写成borderBottomLeftRadius 对象里可以不用加引号因为都会转换成字符串，但-是特殊字符不可以直接写
+            $('div').css('color');
+            $('div').addClass('box');//方法向被选元素添加一个或多个类。该方法不会移除已存在的 class 属性，仅仅添加一个或多个 class 属性。如需添加多个类，请使用空格分隔类名。
+            $('div').removeClass('box');//不填写内容默认移除所有
+            $('div').hasClass();//class是否存在
+            $('div').toggleClass('box');//没有就添加 有就不添加
+        
+
+        遍历元素
+            Dom
+            div.parentNode
+            div.childNodes
+            div.nextSibling
+            div.perviousSibling 上一个
+            
+            jQuery
+            $('div').parent();
+            $('div').children();
+            $('div').children('选择器');
+            $('div').find("选择器")
+            $("div").next();
+            $('div').prev();
+            $('div').prevAll();
+            $('div').siblings('选择器');
+
+        增删改元素
+        添加新元素
+        DOM：
+            var p = document.createElement('p');
+            div.appendChild(p);
+        
+        jQuery:
+            $('div').append("<p><p>")//可以使jq对象 dom对象 和标签 
+            //给p添加事件
+            var p = $('<p><p>');
+            p.onclick();
+            $('div').append(p);
+
+            $('div').prepend('<p><p>')
+                
+        删除元素
+         DOM
+            div.removeChlid(p);
+            p.parentNode.removeChild(p);
+        
+        jQuery
+            $('p').remove();
+            $('div').empty(); == div.html('');
+
+        替换元素
+        DOM 
+            parent.repalceChild(newChild,oldChild);
+        jQuery 
+            $('new').replaceAll('.old')//返回新的元素
+            $('old').replaceWith('.new')//选择器 jq对象 <div></div> 都可以  返回被替换的元素
+
+        克隆元素
+        DOM：
+            var copy = div.childNode();
+            var copy = div.childNode(true);//深克隆
+
+        jQuery
+            var copy = $('div').clone();    //默认为false 不可隆事件
+            var copy = $('div').clone(true); //所有的都被克隆包括事件监听
+
+        jQuery事件处理
+        面试题：在jq 有多少个事件绑定方法 区别是什么
+            bind() unbind()
+            $('div').bind('click',function () {
+
+                $(this).unbind();
+            })
+    </script>
+</body>
+</html>

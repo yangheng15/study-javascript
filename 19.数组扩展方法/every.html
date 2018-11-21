@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var personArr = [
+            {name:'王刚',scr:'./img/dk.png',des:'颈椎不好',sex:'男',age:18},
+            {name:'李帅',scr:'./img/dk.png',des:'颈多收不好',sex:'女',age:24},
+            {name:'王五',scr:'./img/dk.png',des:'颈地好',sex:'女',age:23},
+            {name:'赵柳',scr:'./img/dk.png',des:'的空间十分好的好',sex:'男',age:22}
+        ];
+        
+        var flag = personArr.every(function (ele,index,self) {
+            console.log(ele,index,self);
+            return ele.age > 17;
+        },{name:'cst'})
+
+        //every 每一个都符合要求 return 都为true时最后flag才为，一个为false都会返回false
+
+        Array.prototype.myEvery = function (func) {
+            var _arr = this,
+            len = arr.length,
+            param2 = arguments || window,
+            flag = true;
+            for (var i = 0;i < len;i ++) {
+                if(!func.apply(param2,[_arr[i],i,_arr])) {
+                    flag = false;
+                }
+            }
+            return flag;
+        }
+    </script>
+</body>
+</html>

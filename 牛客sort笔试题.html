@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    body,
+    html {
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+        color: #000000;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    thead {
+        background: #3d444c;
+        color: #ffffff;
+    }
+
+    td,
+    th {
+        border: 1px solid #e1e1e1;
+        padding: 0;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>price</th>
+                <th>sales</th>
+            </tr>
+        </thead>
+        <tbody id="jsList">
+            <tr>
+                <td class="id">1</td>
+                <td class="price">10.0</td>
+                <td class="sales">800</td>
+            </tr>
+            <tr>
+                <td class="id">2</td>
+                <td class="price">30.0</td>
+                <td class="sales">600</td>
+            </tr>
+            <tr>
+                <td class="id">3</td>
+                <td class="price">20.5</td>
+                <td class="sales">700</td>
+            </tr>
+            <tr>
+                <td class="id">4</td>
+                <td class="price">40.5</td>
+                <td class="sales">500</td>
+            </tr>
+            <tr>
+                <td class="id">5</td>
+                <td class="price">60.5</td>
+                <td class="sales">300</td>
+            </tr>
+            <tr>
+                <td class="id">6</td>
+                <td class="price">50.0</td>
+                <td class="sales">400</td>
+            </tr>
+            <tr>
+                <td class="id">7</td>
+                <td class="price">70.0</td>
+                <td class="sales">200</td>
+            </tr>
+            <tr>
+                <td class="id">8</td>
+                <td class="price">80.5</td>
+                <td class="sales">100</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+    	function sort (type,order) {
+    		var index = ['id','price','sales'],
+    			trs = document.getElementById('jsList').children,
+    			position = index.indexOf(type),
+    			len = trs.length;
+    			// console.log(Array.prototype.slice.call(trs));
+    		var newArr = Array.prototype.slice.call(trs).sort(function (a,b) {
+    			return order == 'asc' ? a.children[position].innerHTML - b.children[position].innerHTML : b.children[position].innerHTML - a.children[position].innerHTML;
+    		});
+    		for (var i = 0;i < len; i ++) {
+    			for(var j = 0;j < 3; j ++) {
+    				console.log(newArr[i].children[j].innerHTML);
+    				trs[i].children[j].innerHTML = newArr[i].children[j].innerHTML;
+    			}
+    		}
+    	}
+
+    	sort('sales','asc');
+
+
+
+
+    // function sort(type, order) {
+    //     var map = ['id', 'price', 'sales'],
+    //         parent = document.getElementById('jsList'),
+    //         trs = parent.children,
+    //         col = map.indexOf(type);
+    //         console.log(trs);
+    //     [].slice.call(trs).sort(function(l, n) {
+    //         var lt = l.children[col].innerHTML,
+    //             nt = n.children[col].innerHTML;
+    //         return order == 'desc' ? lt < nt : lt > nt;
+    //     }).map(function(el) {
+    //         parent.appendChild(el);
+    //     });
+    // }
+    </script>
+</body>
+
+</html>

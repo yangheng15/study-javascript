@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            opacity: 1;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        var aDiv = document.getElementsByTagName('div');
+        aDiv[0].onclick = function () {//width
+            startMove(this,400,'width');
+        }
+        aDiv[1].onclick = function () {//height
+            startMove(this,400,'height');
+        }
+        aDiv[2].onclick = function () {//opacity 0.5
+            startMove(this,50,'opacity');
+        }
+        aDiv[3].onclick = function () {//borderWidth
+            startMove(this,50,'borderWidth');
+        }
+
+        function startMove (obj,target,attr) {
+            clearInterval(obj.timer);
+            var iSpeed,
+                iCur;
+            obj.timer = setInterval(function () {
+                
+                if(attr == 'opacity') {
+                    iCur = getStyle(obj,attr) * 100;
+                    // console.log(iCur);
+                }else {
+                    iCur = parseInt(getStyle(obj,attr));
+                    // console.log(iCur);
+                }
+                iSpeed = (target - iCur) / 7;
+                iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                // console.log('a');
+                if(iCur == target) {
+                    clearInterval(obj.timer);
+
+                }else {
+                    if(attr == 'opacity') {
+                        obj.style.opacity = (iCur + iSpeed) / 100;
+                    }else {
+                        obj.style[attr] = iCur + iSpeed + 'px';
+                    }
+                }
+            },30)
+        }
+
+        function getStyle (elem,prop) {
+            if(window.getComputedStyle) {
+                return window.getComputedStyle(elem,null)[prop];
+            }else {
+                return elem.currentStyle[prop];
+            }
+        }
+    </script>
+</body>
+</html>

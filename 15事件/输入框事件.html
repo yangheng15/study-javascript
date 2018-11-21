@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input {
+			width: 300px;
+			border: 2px solid blue;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" value="请输入用户名" onfocus="if(this.value == '请输入用户名'){this.value = ''}" onblur="if(this.value == ''){this.value = '请输入用户名';}">
+
+	<!-- <input type="text" value=""> -->
+	<script>
+		var input = document.getElementsByTagName('input')[0];
+	</script>
+</body>
+</html>

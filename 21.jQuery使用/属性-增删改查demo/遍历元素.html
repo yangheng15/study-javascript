@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .tabs li {
+            float: left;
+            margin-top: 10px;
+            border-bottom: 1px solid #000;    
+        }
+        .tabs li a {
+            display: inline-block;
+            width: 100px;
+            color: black;
+            text-decoration-line: none;
+            text-align: center;
+        }
+        .tabs::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .wrapper {
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+        .tabs .active {
+            /* background-color: #f40; */
+            border: 1px solid #000;
+            border-bottom: none;
+        }
+        .wrapper>div {
+            display: none;
+
+        }
+        .wrapper div.active {
+            display: block;
+
+        }
+    </style>
+</head>
+<body>
+    <ul class="tabs">
+        <li class=""><a href="#tc10" >十元套餐</a></li>
+        <li><a href="#tc20">二十元套餐</a></li>
+        <li><a href="#tc30">三十元套餐</a></li>
+    </ul>
+    <div class="wrapper">
+        <div id="tc10" class="active">十元套餐 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam accusantium perferendis dicta autem, laboriosam aut non, porro cum accusamus, officia odio tempore quibusdam sint fugiat eligendi minima dolor error.</div>
+        <div id="tc20">二十元套餐Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit reiciendis delectus sed nulla enim in, dignissimos, nobis harum quas beatae at assumenda consequuntur architecto, ex numquam rerum provident! Delectus, ipsa.</div>
+        <div id="tc30">三十元套餐 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, at, officia deserunt suscipit eveniet, animi magnam in corrupti asperiores minima nisi reiciendis sint voluptate! Recusandae dolor provident consequuntur excepturi minima.</div>
+    </div>
+    <script src="../jquery-1.11.3.js"></script>
+    <script>
+        $('.tabs a').click(function (e) {
+            e.preventDefault();
+            $(this).parent().addClass('active').siblings('.active').removeClass();
+            console.log($(this).attr('href'));
+            $($(this).attr('href')).addClass('active').siblings('.active').removeClass();
+        })
+    </script>
+</body>
+</html>

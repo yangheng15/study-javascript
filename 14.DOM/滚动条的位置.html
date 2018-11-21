@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+     //获取滚动条位置
+     function getScrollOffset () {
+            if(window.pageXOffset) {
+                return {
+                    x : window.pageXOffset,//可以设置 但是不能不能动态变化
+                    y : window.pageYOffset
+                }
+            }else {
+                return {
+                    x : document.body.scrollLeft + document.documentElement.scrollLeft,
+                    y : document.body.scrollTop + document.documentElement.scrollTop
+                }
+            }
+        }
+    </script>
+</body>
+</html>

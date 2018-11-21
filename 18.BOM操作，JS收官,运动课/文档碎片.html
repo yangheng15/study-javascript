@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul"> 
+		
+	</ul>
+	<script>
+		var oF = document.createDocumentFragment();//文档碎片
+		var oUl = document.getElementById('ul');
+		for(var i = 0;i < 10;i ++) {
+			var oLi = document.createElement('li');
+			oLi.innerHTML = i + '';
+			oF.appendChild(oLi);
+		}
+		oUl.appendChild(oF);//文档碎片不能提高性能后续有办法解决如果现在想解决也可以用字符串拼接比起创建dom时间短
+	</script>
+</body>
+</html>

@@ -60,29 +60,29 @@
 		// var father = new Father();
 		// var son = new Son();
 		// console.log(son.lastName);
-		//new 不能写在前面因为var obj = {name:"a"};var obj1 = obj; obj = {name:"b"}; __proto__也存着地址
+		// new 不能写在前面因为var obj = {name:"a"};var obj1 = obj; obj = {name:"b"}; __proto__也存着地址
 
 		// 4.高级
-		// Father.prototype.lastName = "yang";
-		// function Father() {
+		Father.prototype.lastName = "yang";
+		function Father() {
 
-		// }
-		// function Son() {
+		}
+		function Son() {
 
-		// }
-		// var inherit = (function () {
-		// 	var middle = function() {}
-		// 	return function (Target,Origin) {
-		// 		middle.prototype = Origin.prototype;
-		// 		Target.prototype = new middle();
-		// 		Target.prototype.constuctor = Target;
-		// 		Target.prototype.uber = Origin.prototype;
-		// 	}
-		// }());
-		// inherit(Son,Father);
-		// var father = new Father();
-		// var son = new Son();
-		// console.log(son.lastName);
+		}
+		var inherit = (function () {
+			var middle = function() {}
+			return function (Target,Origin) {
+				middle.prototype = Origin.prototype;
+				Target.prototype = new middle();
+				Target.prototype.constuctor = Target;
+				Target.prototype.uber = Origin.prototype;
+			}
+		}());
+		inherit(Son,Father);
+		var father = new Father();
+		var son = new Son();
+		console.log(son.lastName);
 
 		// 对象的枚举
 		 // var obj = {

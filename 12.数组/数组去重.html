@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var arr = [1, 2, 3, 3, 4, 2, 1];
+        // var str = '1233421';
+        // function unique2 (param) {
+        //     var newArr = [];
+        //     var len = param.length;
+        //     var ret;
+        //     for(var i = 0;i < len;i ++) {
+        //         if(newArr.indexOf(param[i]) == -1) {
+        //             newArr.push(param[i]);
+        //         }
+        //     }
+        //     ret = typeof(param) == 'string' ? newArr.join('') : newArr;
+        //     return ret;
+        // }
+
+
+        var arr = [1, 2, 3, 3, 4, 2, 1];
+        console.log(unique3(arr));
+        function unique3 (arr) {
+            var newArr = [];
+            var len = arr.length;
+            for(var i = 0;i < len;i ++) {
+                for(var j = i + 1;j < len;j ++) {
+                    if(arr[i] === arr[j]) {// 0 , 6
+                        j = ++i;
+                        console.log(i,j);
+                    }
+                    console.log(arr[i],arr[j]);
+                }
+                newArr.push(arr[i]);
+                console.log(arr[i]);
+            }
+            return newArr;
+        }
+
+        // var arr = [1, 2, 35, 3, 4, 2, 1];;
+        // console.log(unique4(arr));
+        // function unique4 (arr) {
+        //     arr.sort(function (a,b) {
+        //         return a - b;
+        //     });
+        //     var newArr = [arr[0]];
+        //     var len = arr.length;
+        //     for(var i = 0;i < len; i ++) {
+        //         if(arr[i] !== newArr[newArr.length - 1]) {
+        //             newArr.push(arr[i]);
+        //         }
+        //     }
+        //     return newArr;
+        // }
+    </script>
+</body>
+</html>

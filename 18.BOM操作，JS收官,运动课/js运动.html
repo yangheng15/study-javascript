@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			position: absolute;
+			left: 800px;
+
+		}
+		button {
+			margin-top: 150px;
+		}
+		span {
+			position: absolute;
+			width: 1px;
+			height: 100px;
+			background-color: black;
+			left: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<span></span>
+	<button>run</button>
+	<script>
+
+		//加速运动
+		// var oDiv = document.getElementsByTagName('div')[0];
+		// var oBtn = document.getElementsByTagName('button')[0];
+		// oBtn.onclick = function () {
+		// 	startMove(oDiv);
+		// }
+		// function startMove(obj) {
+		// 	clearInterval(timer);
+		// 	var speed;
+		// 	if(obj.offsetLeft > 300) {
+		// 		speed = -8;
+		// 	}else {
+		// 		speed = 8;
+		// 	}
+		// 	var timer = setInterval(function () {
+		// 		if(Math.abs(300 - obj.offsetLeft) < Math.abs(speed)) {
+		// 			clearInterval(timer);
+		// 			obj.style.left = '300px';
+		// 		}else {
+		// 			obj.style.left = obj.offsetLeft + speed + 'px';
+		// 		}
+		// 	},30);
+		// }
+
+		//缓冲运动
+		//让300 - 左边距离/ 7 = 
+		var oDiv = document.getElementsByTagName('div')[0];
+		var oBtn = document.getElementsByTagName('button')[0];
+		var timer = null;
+		oBtn.onclick = function () {
+			startMove(oDiv);
+		}
+		function startMove(obj) {
+			// console.log(timer);
+			clearInterval(timer);
+			var timer = setInterval(function () {
+				var speed = obj.offsetLeft < 300 ? Math.ceil((300 - obj.offsetLeft) / 7) : Math.floor((300 - obj.offsetLeft) / 7)//想上取整，但是负的时候取为0 
+				// console.log(speed);
+				if(obj.offsetLeft === 300) {
+					clearInterval(timer);
+
+				}else {
+					obj.style.left = obj.offsetLeft + speed + 'px';
+				}
+				
+			},30);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		a {
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+		}
+		
+	</style>
+</head>
+<body>
+	
+	<a style="top: 0;left: 0;"></a>
+	<script>
+		var a = document.getElementsByTagName('a')[0];
+		var firstTime = 0,
+			secondTime = 0,
+			key = false;	
+		a.onmousedown = function (e) {
+			firstTime = new Date().getTime();
+			var event = e || window.event;
+			var disX = event.pageX - parseInt(a.style.left),
+				disY = event.pageY - parseInt(a.style.top);
+				console.log(event);
+			document.onmousemove = function (event) {
+				a.style.left = parseInt(event.pageX) - disX + 'px';
+				a.style.top = parseInt(event.pageY) - disY + 'px';
+			}
+		}
+		a.onmouseup = function () {
+			secondTime = new Date().getTime();
+			if(secondTime - firstTime < 300) {
+				key = true;
+			}
+			document.onmousemove = null;
+		}
+		a.onclick = function () {
+			if(key) {
+				a.href = "https:www.baidu.com";
+				key = false;
+			}
+		}
+
+
+// screenX:鼠标位置相对于用户屏幕水平偏移量，而screenY也就是垂直方向的，此时的参照点也就是原点是屏幕的左上角。
+
+//clientX:跟screenX相比就是将参照点改成了浏览器内容区域的左上角，该参照点会随之滚动条的移动而移动。
+
+//pageX：参照点也是浏览器内容区域的左上角，但它不会随着滚动条而变动
+	</script>
+</body>
+</html>

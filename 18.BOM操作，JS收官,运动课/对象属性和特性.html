@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" data="hh" value="123">
+	
+	<script>
+		var oInput = document.getElementsByTagName('input')[0];
+		console.log(oInput.data);//写在行间的自定义样式不是特性不能和js一一映射关系 所以不能直接通过点的方式打印出来
+		console.log(oInput.getAttribute('data'));//但是写在行间的样式可以通过getAttribute()的方式取出来
+		oInput.setAttribute('tx','Nicai');//可以将属性写到行间但是仍然不可以用点的方式获取，因为不是特性
+		console.log(oInput.tx);//打印undefined;
+	</script>
+</body>
+</html>

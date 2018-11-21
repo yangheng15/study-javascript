@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .hero {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #aaa;
+            margin: 0 auto;
+        }
+        .hero img {
+            width: 100px;
+            height: 100px;
+        }
+        .list img{
+            width: 100px;
+            height: 100px;
+        }
+        .list {
+            text-align: center;
+            margin-left: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="hero"></div>
+    <hr>
+    <div class="list">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542603216020&di=3493d7add44155fa28a4436a8b094e2a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730222950_jNEXw.thumb.700_0.jpeg" alt="">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542603216020&di=c1e373899d8cdd57909355e448aba262&imgtype=0&src=http%3A%2F%2Fpic1.16pic.com%2F00%2F44%2F53%2F16pic_4453272_b.jpg" alt="">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542603231115&di=2582fd433b05afc08c5dcb4752fc0d7f&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201506%2F04%2F20150604214714_iU5G2.jpeg" alt="">
+    </div>
+    <script src="../jquery-1.11.3.js"></script>
+    <script>
+        $('.list img').click(function () {
+            if(!$('.hero img').length) {
+                console.log('a');
+                $('.hero').append(this);//替换时this会被剪切到.hero
+            }else {
+                $('.list').append($('.hero img').replaceWith(this));
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<label for="demo">用户名：</label>
+	<input type="text" id="demo">
+	<script>
+		//绑定的事件执行顺序
+		var oLabel = document.getElementsByTagName('label')[0];
+		var oInput = document.getElementsByTagName('input')[0];
+		oLabel.onclick = function () {
+			console.log(this);
+		}
+		oInput.onclick = function () {
+			console.log(this);
+		}
+	</script>
+</body>
+</html>

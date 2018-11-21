@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	.wraper {
+		width: 400px;
+		height: 400px;
+		background: red;
+	}
+	.center {
+		width: 200px;
+		height: 200px;
+		background: green;
+		margin-left: 400px;
+	}
+	.box {
+		width: 100px;
+		height: 100px;
+		background: black;
+		margin-left: 200px;
+	}
+</style>
+<body>	
+	<div class="wraper">
+		<div class="center">
+			<div class="box"></div>
+		</div>
+	</div>
+	<script>
+		var wraper = document.getElementsByClassName('wraper')[0];
+		var center = document.getElementsByClassName('center')[0];
+		var box = document.getElementsByClassName('box')[0];
+		wraper.addEventListener('click',function () {
+			console.log('wraper');
+		},false);
+		// center.addEventListener('click',function () {
+		// 	console.log('center');
+		// },false);
+		box.addEventListener('click',function () {
+			console.log('box');
+		},false);
+
+		// 	wraper.addEventListener('click',function () {
+		// 	console.log('wraperB');
+		// },true);
+		// center.addEventListener('click',function () {
+		// 	console.log('centerB');
+		// },true);
+		// box.addEventListener('click',function () {
+		// 	console.log('boxB');
+		// },true);
+	</script>
+</body>
+</html>

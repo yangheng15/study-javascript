@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			top: 900px;
+		}
+	</style>
+</head>
+<body>
+	<div style="opacity: 0.5"></div>
+	<script>
+		var div = document.getElementsByTagName('div')[0],
+			pageY = div.offsetTop;
+		window.onscroll = function () {
+			var scrollY = window.pageYOffset,//滚动条
+				box = window.innerHeight;
+			if(pageY <= box + scrollY ) {
+				div.timer = setInterval(function () {
+					if(div.style.opacity == '1') {
+						clearInterval(div.timer);
+					}else {
+		 				div.style.opacity = parseFloat(div.style.opacity) + 0.01 ;//读取的是字符串需要转换成数字，但写入的可以是字符串也可以是数字不限，最后会转成字符串
+					}
+				},30);
+			}
+		}
+		</script>
+</body>
+</html>

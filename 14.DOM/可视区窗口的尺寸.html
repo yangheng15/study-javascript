@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getViewportOffset () {
+            if(window.innerWidth) {
+                return {
+                    w : window.innerWidth,//加上轮动条 IE8及IE8以下不兼容
+                    h : window.innerHeight
+                }
+            }else {
+                    if(document.compatMode === "BackCompat") {
+                        return {
+                            w : document.body.clientWidth,//怪异模式下，不加滚动条
+                            h : document.body.clientHeight
+                        }
+                    }else {
+                        return {
+                            w : document.documentElement.clientWidth,//不加滚动条 标准模式下，任意浏览器都兼容
+                            h : document.documentElement.clientHeight
+                        }
+                    }
+                } 
+        }
+    </script>
+</body>
+</html>

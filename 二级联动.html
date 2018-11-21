@@ -31,25 +31,24 @@
         var city = document.form1.city;
 
         //指定省份中<option>标记的个数
-        province.length = arr_province.length;
-
+        province.length = arr_province.length;//province.length就是option
+        // console.log(province);
+        // console.log(province.options);
+        
+        //select创建option 元素可以直接点操作，option是select 的属性
         //循环将数组中的数据写入<option>标记中
         for(var i=0;i<arr_province.length;i++){
             province.options[i].text = arr_province[i];
             province.options[i].value = arr_province[i];
         }
 
-        //修改省份列表的默认选择项
-        var index = 0;
-        province.selectedIndex = index;
-
         //指定城市中<option>标记的个数
-        city.length = arr_city[index].length;
+        city.length = arr_city[0].length;
 
-        //循环将数组中的数据写入<option>标记中
-        for (var j = 0; j<arr_city[index].length;j++) {
-            city.options[j].text = arr_city[index][j];
-            city.options[j].value = arr_city[index][j];
+        // //循环将数组中的数据写入<option>标记中
+        for (var j = 0; j<arr_city[0].length;j++) {
+            city.options[j].text = arr_city[0][j];
+            city.options[j].value = arr_city[0][j];
         }
 
     }

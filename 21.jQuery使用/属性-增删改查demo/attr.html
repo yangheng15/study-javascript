@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .img1 {
+            height: 100px;
+            width: 100px;
+        }
+        .img2 {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>操作元素的属性</h1> 
+    <img class="img1" src="../ly.jpg" alt="">
+    <img class="img1" src="../lf.jpg" alt="">
+    <img class="img1" src="../ly.jpg" alt="">
+    <hr>
+    <img src="../ly.jpg" alt="" class="img2">
+    <script src="../jquery-1.11.3.js"></script>
+    <script>
+        $('.img1').mouseover(function () {
+        
+            $('.img2').attr('src',$(this).attr('src'));
+        })
+    </script>
+</body>
+</html>

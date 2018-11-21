@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         //jquery对象转换为dom对象：
+         var jqObj = $("button");//返回一个类数组对象
+        var domobj = jqObj[0]
+        var domobj = jqObj.get(0)
+
+        //dom对象转换为jquer'y对象
+        var oBtn = document.getElementsByTagName('button')[0];
+        console.log($(oBtn));
+        $(oBtn).css('background-color','red');
+
+        jqObj.click(function () {
+            console.log(this);
+        })
+        console.log(jqObj);
+    </script>
+</body>
+</html>

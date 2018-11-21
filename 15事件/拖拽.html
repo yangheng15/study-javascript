@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div style="left:0;top: 0;"></div>
+	<script>
+		
+		var div = document.getElementsByTagName('div')[0];
+		drag(div);
+		function drag (elem) {
+			var	disX,
+				disY;
+			elem.onmousedown = function (e) {
+				var event = e || window.event;
+				disX = event.pageX - parseInt(elem.style.left);
+				disY = event.pageY - parseInt(elem.style.top);
+				document.onmousemove = function (event) {
+
+					elem.style.left = event.pageX - disX + 'px';
+					elem.style.top = event.pageY - disY + 'px';
+				}
+				elem.onmouseup = function () {
+					document.onmousemove = null;
+				}
+			}
+		}
+		
+	</script>
+</body>
+</html>

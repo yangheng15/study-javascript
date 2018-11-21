@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 50px;
+            background-color: red;
+            border: 1px solid #000;
+            opacity: 1;
+        }
+    
+    </style>
+</head>
+<body>
+    <!-- 需求：当鼠标点击div的时候每个div的 width 改变 height 改变  opacity改变 borderWidth改变 -->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        var oDiv = document.getElementsByTagName('div');
+        oDiv[0].onclick = function () {
+            startMove(this,400,'width')
+        }
+        oDiv[1].onclick = function () {
+            startMove(this,400,'height')
+        }
+        oDiv[2].onclick = function () {
+            startMove(this,50,'opacity')
+        }
+        oDiv[3].onclick = function () {
+            startMove(this,50,'borderWidth')
+        }
+        function startMove (obj,target,attr) {
+            clearInterval(obj.timer);
+            var iSpeed,
+                iCur;//100
+            obj.timer = setInterval(function () {
+                if(attr == 'opacity') {
+                    iCur = parseFloat(getStyle(obj,'opacity') * 100);//100
+                    
+                }else {
+                    iCur = parseInt(getStyle(obj,attr));
+                    // console.log(iCur);
+
+                }
+                iSpeed =  (target - iCur ) / 7;//400 - 100= 300 / 7 =   
+                iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                // console.log(iSpeed);
+                if(iCur == target) {
+                    clearInterval(obj.timer);
+                }else {
+                    if(attr == 'opacity') {
+                        
+                        obj.style.opacity = (iCur + iSpeed ) / 100;//100 + 7. = 107./100 =                         
+                    }else {
+                        obj.style[attr] = iSpeed + iCur + 'px';
+                    }
+                }
+            },30);
+        }
+        function getStyle (obj,attr) {
+            if(window.getComputedStyle) {
+                return window.getComputedStyle(obj,null)[attr];
+            }else {
+                return obj.currentStyle[attr];
+            }
+        }
+    </script>
+</body>
+</html>

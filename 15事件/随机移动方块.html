@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div style="top: 0;left: 0;bottom: 0;right: 0;"></div>
+	<script>
+		var div = document.getElementsByTagName('div')[0];
+		div.onmousedown = function () {
+		var direction = parseInt(Math.random() * 8);
+		console.log(direction);
+			switch (direction) {
+				case 0://上
+					div.style.top = parseInt(getComputedStyle(div,null).top) - 100 + 'px';
+					break;
+				case 1://右
+					div.style.left = parseInt(getComputedStyle(div,null).left) + 100 + 'px';
+					break;
+				case 2:
+					div.style.top = parseInt(getComputedStyle(div,null).bottom) + 100 + 'px';
+					break;
+				case 3:
+					div.style.left = parseInt(getComputedStyle(div,null).left) + 100 + 'px';
+					break;
+				case 4:
+					div.style.right = parseInt(getComputedStyle(div,null).right) + 100 + 'px';
+					div.style.top = parseInt(getComputedStyle(div,null).top) + 100 + 'px';		
+					break;
+				case 5:
+					div.style.right = parseInt(getComputedStyle(div,null).right) + 100 + 'px';
+					div.style.bottom = parseInt(getComputedStyle(div,null).bottom) + 100 + 'px';	
+					break;
+				case 6:
+					div.style.left = parseInt(getComputedStyle(div,null).left) + 100 + 'px';
+					div.style.bottom = parseInt(getComputedStyle(div,null).bottom) + 100 + 'px';	
+					break;
+				case 7:
+					div.style.left = parseInt(getComputedStyle(div,null).right) + 100 + 'px';
+					div.style.top = parseInt(getComputedStyle(div,null).top) + 100 + 'px';	
+					break;
+			}
+		}
+	</script>
+</body>
+</html>

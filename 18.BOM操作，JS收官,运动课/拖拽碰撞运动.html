@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var oDiv = document.getElementsByTagName('div')[0];
+        var lastX = oDiv.offsetLeft;
+        var lastY = oDiv.offsetTop;
+        oDiv.onmousedown  = function (e) {
+            clearInterval(oDiv.timer);
+            var event = e || window.event;
+            var disX = event.pageX - oDiv.offsetLeft,
+                disY = event.pageY - oDiv.offsetTop,
+                speedX = 0,
+                speedY = 0;
+            document.onmousemove = function (event) {
+                var newLeft = event.pageX - disX;
+                var newTop = event.pageY - disY;
+                speedX = newLeft - lastX;
+                speedY = newTop - lastY;
+                lastX = newLeft;
+                lastY = newTop;
+                oDiv.style.left = newLeft + 'px';
+                oDiv.style.top = newTop+ 'px';
+
+            }
+            oDiv.onmouseup = function () {
+                document.onmousemove = null;
+                startMove(this,speedX,speedY);
+            }
+        }
+        function startMove(obj,speedX,speedY) {
+            clearInterval(obj.timer);
+            var g = 6;
+            console.log(speedY);
+            obj.timer = setInterval(function () {
+            
+                speedY += g;
+                // console.log('+g'+ speedY);
+                var newLeft = obj.offsetLeft + speedX ;
+                var newTop = obj.offsetTop + speedY ;
+                // console.log(speedY);
+                if(newTop >= getViewportOffset().H - obj.offsetHeight) {
+                    // console.log('开始'+speedY);
+                    speedY *= -1;
+                    speedY *= 0.8;
+                    // console.log('*-0.8'+ speedY);
+                    speedX *= 0.8;
+                    // console.log(speedY); 
+                    newTop = getViewportOffset().H - obj.offsetHeight;
+                }
+                if(newTop <= 0) {
+                    speedY *= -1;
+                    newTop = 0;
+                    speedY *= 0.8;
+                    speedX *= 0.8;
+                }
+                if(newLeft >= getViewportOffset().W - obj.offsetWidth) {
+                    speedX *= -1;
+                    newLeft = getViewportOffset().W - obj.offsetWidth;
+                    speedY *= 0.8;
+                    speedX *= 0.8;
+                }
+                if(newLeft <= 0) {
+                    speedX *= -1;
+                    newLeft = 0;
+                    speedY *= 0.8;
+                    speedX *= 0.8;
+                }
+                if(Math.abs(speedX) < g) {
+                    speedX = 0;
+                }
+                if(Math.abs(speedY) < g){
+                    speedY = 0;
+                }
+                if(speedX == 0 && speedY == 0 && newTop == getViewportOffset().H - obj.offsetHeight) {
+                    clearInterval(obj.timer);
+                }
+                obj.style.left = newLeft + 'px';
+                obj.style.top = newTop + 'px';
+                console.log(newTop);
+                console.log(speedY);
+            },30)
+        }
+
+        function getViewportOffset () {
+            if(document.documentElement.clientwidth) {
+                return {
+                    W : document.documentElement.clientWidth,
+                    H : document.documentElement.clientHeight
+                }
+            }else {
+                if(document.compatMode == 'BackCompat') {
+                    return {
+                        W : document.body.clientWidth,
+                        H : document.body.clientHeight
+
+                    }
+                }else {
+                    return {
+                        W : window.innerWidth,
+                        H : window.innerHeight
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

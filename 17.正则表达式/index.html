@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// var reg = /^\b[\s\S]*\b$/g;
+		// var str = '123abc123';
+//正则表达式不含^或$
+// var reg = /abc/gm;
+// var singleline = /abc/;
+// var str = "abcab\ncabc";
+	// var reg = /(\w)\1(\w)\2/g;
+	// var str = 'aabb';
+	// console.log(str.replace(reg,function ($,$1,$2) {
+	// 	return $2+$2+$1+$1;
+	// }));
+
+	// var str = 'the-first-name';
+	// var reg = /-(\w)/g;
+	// console.log(str.replace(reg,function ($,$1) {
+	// 	return $1.toUpperCase();
+	// }));//匹配一次执行一次
+	// var str = '10000000000';
+	// var reg = /(?=(\d{3})+$)/g;
+	// // var reg = /\d/g;
+	// // var str = 'abab';
+	// // var reg = /\w(?=b)/g;
+	// console.log(str.match(reg));
+	// console.log(reg.exec(str));
+	// console.log(reg.exec(str));
+
+
+	//1
+	// var str = '30CAC0040';
+	// var reg = /\d+$/g;
+	// console.log(str.match(reg));
+
+	//2.字符串内如有空格，但是空格的数量可能不一致，通过正则将空格的个数统一变为一个。例如：蓝 色 理 想变成：蓝 色 理 想
+
+	// var str = '蓝  色  理 想';
+	// var reg = / +/g;
+	// console.log(str.replace(reg,' '));
+
+	//3.电话号码正则 区号必填3-4的数字,区号之后用‘-’与电话号码连接，电话号码必填为7-8位数字
+	// var str = '010-61386366';
+	// var reg = /\d{3,4}-\d{7,8}$/g;
+	// console.log(str.match(reg));
+
+
+	//4.正则验证手机号，忽略前面的0，支持130-139，150-159。忽略前面0之后判断它是11位的。
+	// var str = '15004091766';
+	// var reg = /^0*(13|15)\d{9}$/;
+	// console.log(str.match(reg));
+
+	//5.使用正则表达式实现删除字符串中的空格：
+	// var str = ' s j ';
+	// var reg = / /g;
+	// console.log(str = str.replace(reg,''));
+	// console.log(str.length);
+
+	//6.开头有若干个数字，中间有0个或者一个小数点，结尾有0到2个数字。	
+	var str = '123.22';
+	var reg = /^\d*.?\d{0,2}$/g;
+	console.log(str.match(reg));
+	//7.只能输入小写的英文字母和小数点，和冒号，正反斜杠(：./\)
+
+	</script>
+</body>
+</html>

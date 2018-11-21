@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            opacity: 1;
+            left: 0;
+        }
+        .top {
+            top: 100px;
+        }
+        .bottom {
+            top: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <script>
+        var oTop = document.getElementsByClassName('top')[0];
+        var oBom = document.getElementsByClassName('bottom')[0];
+
+        oTop.onclick = function () {
+            startMove(this,targetObj,function () {
+                startMove(oBom,targetObj);
+            });
+        }
+        var targetObj = {
+            width:400,
+            height:400,
+            opacity:50,
+            left:300,
+            top:200
+        }
+
+        function getStyle (elem,prop) {
+            if(window.getComputedStyle) {
+                return window.getComputedStyle(elem,null)[prop];
+            }else {
+                return elem.currentStyle[prop];
+            }
+        }
+
+        function startMove (obj,json,callback) {
+            clearInterval(obj.timer);
+            var iSpeed,
+                iCur;
+            obj.timer = setInterval(function () {
+                var bStop = true;                
+                for(var prop in json) {
+                    if(prop == 'opacity') {
+                        iCur = getStyle(obj,prop) *100;
+                        // console.log(iCur);
+
+                    }else {
+                        iCur = parseInt(getStyle(obj,prop));
+                        // console.log(iCur);
+                    }
+                    iSpeed = (json[prop] - iCur) / 7;//400 - 100 = 300/7 =42.8 36.7
+                    iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                    // console.log(iSpeed);
+                    if(prop == 'opacity') {
+                        obj.style.opacity = (iCur + iSpeed) / 100;
+                    }else {
+                        obj.style[prop] = iCur + iSpeed + 'px';//142.8 
+                        // console.log(obj.style[prop]);
+                    }
+                    if(iCur != json[prop]) {
+                        bStop = false;
+                    }
+                    // console.log('a');
+
+                    if(bStop) {
+                        clearInterval(obj.timer);
+                        typeof callback  == 'function' ? callback() : ''; 
+                    }
+                }
+            },30)
+        }
+    </script>
+</body>
+</html>

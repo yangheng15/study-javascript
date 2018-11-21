@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+<style>
+		h2 {
+			background-color: black;
+		}
+	</style>
+
+</head>
+<body>
+		
+	<h2>hhhhh</h2>
+	
+	<script>
+		
+			var num = 999999999;
+			while(num) {
+				num -- ;
+			} 
+		console.log(document.readyState);
+			
+			console.log('a');
+		
+		//浏览器需要等所有都加载完在渲染页面吗
+	</script>
+
+
+	<!-- 
+		浏览器加载html文档后在内存中解析为dom树，遇到link css引入以及添加了images，创建线程加载，并继续解析文档，遇到js
+		阻塞其他的下载和呈现.在没有使用异步加载（async）或者是延迟加载(defer)的情况下,只有在一个JS文件加载解析完后才能加载后面的JS文件，没有遇到js，解析完dom
+
+
+	 -->
+</body>
+</html>
