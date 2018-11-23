@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button></button>
+    <script>
+        var obtn = document.getElementsByTagName('button')[0];
+        xunhuan();
+        obtn.onclick = function () {
+            console.log('a');
+        }
+        function xunhuan() {
+            while(1) {
+                console.log(1);
+            }
+        }
+        // GUI线程和js线程互斥js线程执行时GUI线程处于冻结，所以这是button的颜色改变不了GUI线程只能改变标签颜色
+    </script>
+</body>
+</html>

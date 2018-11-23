@@ -18,6 +18,7 @@
     <script>
         $('ul').delegate('li','click',function (e) {
             console.log($(e.target).html());
+            console.log(this);
         })
     </script>
 </body>
