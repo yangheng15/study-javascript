@@ -73,10 +73,10 @@
         $('div').children('选择器');
         $('div').find("选择器")
         $("div").next();
-        $('div').prev();
-        $('div').prevAll();
-        $('div').siblings('选择器');
-
+        $('div').prev();取得匹配元素前的紧邻的同辈元素
+        $('div').prevAll();取得匹配元素前的所有同辈元素
+        $('div').siblings('选择器');匹配元素的所有同辈元素
+        $('div').closest(); 方法获得匹配选择器的第一个祖先元素，从当前元素开始沿 DOM 树向上。
         增删改元素
         添加新元素
         DOM：
@@ -155,6 +155,8 @@
 
         on() off()-- - 1.9版本
         作用：可以实现类似bind（）函数功能和delegate（）
+        语法：$(selector).on(event,childSelector,data,function)
+            $(selector).off(event,selector,function(eventObj),map)
         $('.btn').on('click', fu)
         $('parent').on('click', '.btn', fu) 和delegate 一样
         同时给多个元素绑定一样的事件
