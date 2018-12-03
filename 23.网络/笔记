@@ -1,0 +1,12 @@
+同源策略：https://www.baidu.com:80/
+        协议        域名    端口 都相同的情况下才可以访问资源，
+不带www 不能起别名
+www.baidu.com 可以起小名 叫baidu.com
+baidu.com
+
+post和get区别：
+1，get使用url或者cookie传参，而post将数据放在请求主题body里
+2，get的url有长度限制，post可以传输更多数据
+3，post比get更安全
+
+jsonp 原理：

@@ -1,5 +1,5 @@
 /*!
- * jQuery JavaScript Library v1.11.3
+ * jQuery JavaScript复习 Library v1.11.3
  * http://jquery.com/
  *
  * Includes Sizzle.js
