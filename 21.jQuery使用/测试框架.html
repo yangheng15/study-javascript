@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="wrapper">
+        <div class="box"></div>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <ul>
+        <li>23</li>
+    </ul>
+    <div class="demo"></div>
+    <div class="demo"></div> -->
+    <div class="demo"></div>
+    <script src="./myjQuery.js"></script>
+    <!-- <script src="./jquery.js"></script> -->
+    <script>
+        $('.demo').myOn('click',function (a,b,c) {
+            console.log(a,b,c);
+        })
+        $('.demo').myTrigger('click',1,2,3);
+        // console.log($('.demo').get(1));
+        // console.log($('.demo').eq(0));//返回选中的第几个
+        //$() css selector dom
+        // console.log($('.wrapper').find('ul').find('li:nth-child(1)'));
+        // console.log($('.wrapper').find('ul').prevObject);//pervObject 里面存着上父级的jq对象
+        // console.log($('.wrapper').add('.demo'));
+    </script>
+</body>
+</html>

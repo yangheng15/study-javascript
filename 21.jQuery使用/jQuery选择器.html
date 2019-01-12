@@ -26,7 +26,7 @@
         $('parent+span')
         $('parent~nextAll')//元素后面的所有元素
 
-       //属性选择器
+       //属性过滤选择器
         $('div[title*="#"]') //^ #在最前面 $ #在最后面 ! #不存在  * #存在
 
         //表单元素选择器
@@ -46,7 +46,7 @@
         :has()          存在指定选择器
         
         //可见性选择器
-        ：hidden  比可见 display: none  input type="hidden"
+        ：hidden 不可见 display: none  input type="hidden"
         :visible 可见
     </script>
 </body>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="demo"></div>
+    <div class="demo"></div>
+    <div class="demo"></div>
+    <!-- 
+        jQuery 精髓
+                    选择元素
+                    循环操作
+                    链式调用
+     -->
+    <script>
+        (function () {
+            function jQuery (selector) {
+                jQuery.prototype.init.prototype = jQuery.prototype;
+                return new jQuery.prototype.init(selector);
+            }
+            jQuery.prototype.init = function (selector) {
+                //var this = {};
+                //选出dom 封装成jq对象返回
+                //id class
+                this.length = 0;
+                if(selector.indexOf('.') != -1) {
+                    var dom = document.getElementsByClassName(selector.slice(1));
+
+                }else if(selector.indexOf('#') != -1){
+                    var dom = document.getElementById(selector.slice(1));
+                }
+
+                if(dom.length == undefined ) {
+                    this[0] = dom;
+                    this.length ++;
+                }else {
+                    for(var i = 0;i < dom.length;i ++ ) {
+                        this[i] = dom[i];
+                        this.length++;
+                    }
+                }
+                return this;//return jQuery.prototype.init.prototype change to jQuery.prototype at line22
+            }
+
+            jQuery.prototype.css = function (config) {
+                for(var i = 0;i < this.length;i ++) {
+                    for(var attr in config) {
+                        console.log(this);
+                        this[i].style[attr] = config[attr];
+                    }
+                }
+                //链式操作
+                return this;//retrun jQuery.prototype
+            }
+            window.$ = window.jQuery = jQuery;
+        }());
+        // console.log($('.demo'));
+        $('.demo').css({width:'100px',height:'100px',background:'red'});
+    </script>
+</body>
+</html>

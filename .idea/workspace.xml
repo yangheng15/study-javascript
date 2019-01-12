@@ -2,15 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b7b312d-fd50-4450-b19a-9acdb026e6ad" name="Default Changelist" comment="复习阶段">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaScript复习/typeof.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaScript复习/函数.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/15事件/a标签拖拽.html" beforeDir="false" afterPath="$PROJECT_DIR$/15事件/a标签拖拽.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/15事件/拖拽.html" beforeDir="false" afterPath="$PROJECT_DIR$/15事件/拖拽.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/20,jQuery源码-课前预热/jquery-2.0.3.js" beforeDir="false" afterPath="$PROJECT_DIR$/20,jQuery源码-课前预热/jquery-2.0.3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/21.jQuery使用/jquery-1.11.3.js" beforeDir="false" afterPath="$PROJECT_DIR$/21.jQuery使用/jquery-1.11.3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/18.BOM操作，JS收官,运动课/轮播图.html" beforeDir="false" afterPath="$PROJECT_DIR$/18.BOM操作，JS收官,运动课/轮播图.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/21.jQuery使用/jQuery,操作属性，增删改.html" beforeDir="false" afterPath="$PROJECT_DIR$/21.jQuery使用/jQuery,操作属性，增删改.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/23.网络/百度联想词.html" beforeDir="false" afterPath="$PROJECT_DIR$/23.网络/百度联想词.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/6.闭包/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/6.闭包/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css选择器/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaScript复习/函数.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My-Js/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/My-Js/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/n的阶乘.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/事件委托.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/字符串去重.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/封装数组push方法.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/浏览器兼容/不兼容的方法.txt" beforeDir="false" afterPath="$PROJECT_DIR$/浏览器兼容/不兼容的方法.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/深度克隆练习.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/牛客sort笔试题.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/类数组复习.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/练习题 .html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/继承练习.html" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,43 +39,45 @@
     <session id="-82800276">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="JavaScript复习" value="1" />
-          <entry key="html" value="8" />
+          <entry key="html" value="9" />
           <entry key="js" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="8" />
+          <entry key="HTML" value="9" />
           <entry key="JavaScript" value="3" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="1469" />
+          <entry key="html" value="2945" />
           <entry key="js" value="332" />
           <entry key="txt" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1469" />
+          <entry key="HTML" value="2945" />
           <entry key="JavaScript" value="332" />
           <entry key="PLAIN_TEXT" value="7" />
         </counts>
@@ -73,10 +89,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JavaScript复习/typeof.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
+            <state relative-caret-position="132">
               <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -85,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/JavaScript复习/函数.html">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/6.闭包/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="326" column="34" selection-start-line="326" selection-start-column="34" selection-end-line="326" selection-end-column="34" />
+            <state relative-caret-position="2992">
+              <caret line="136" selection-start-line="136" selection-end-line="136" />
             </state>
           </provider>
         </entry>
@@ -105,6 +121,7 @@
         <option value="$PROJECT_DIR$/15事件/拖拽.html" />
         <option value="$PROJECT_DIR$/JavaScript复习/typeof.js" />
         <option value="$PROJECT_DIR$/JavaScript复习/函数.js" />
+        <option value="$PROJECT_DIR$/6.闭包/index.html" />
         <option value="$PROJECT_DIR$/JavaScript复习/函数.html" />
       </list>
     </option>
@@ -115,7 +132,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="775" />
@@ -127,32 +144,14 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="JS学习笔记" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JS学习笔记" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JS学习笔记" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JS学习笔记" type="462c0819:PsiDirectoryNode" />
-              <item name="JavaScript复习" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../node.js" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -203,24 +202,24 @@
       <workItem from="1543677305987" duration="624000" />
       <workItem from="1543712290789" duration="1039000" />
       <workItem from="1543759593662" duration="603000" />
-      <workItem from="1543799167814" duration="5620000" />
+      <workItem from="1543799167814" duration="12575000" />
+      <workItem from="1543821660703" duration="107000" />
+      <workItem from="1544957607611" duration="69000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9282000" />
+    <option name="totallyTimeSpent" value="16413000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="697" height="775" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49922958" weight="0.30543318" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49922958" weight="0.19912152" />
       <window_info id="Structure" order="1" sideWeight="0.5007704" side_tool="true" weight="0.15848215" />
       <window_info id="Favorites" order="2" sideWeight="0.5007704" side_tool="true" weight="0.15848215" />
-      <window_info anchor="bottom" id="Messages" weight="0.32930514" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32935917" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32935917" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -229,6 +228,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32973805" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32930514" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -258,11 +258,6 @@
     <entry file="file://$PROJECT_DIR$/15事件/冒泡传递.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/6.闭包/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-990" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/15事件/拖拽.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
@@ -281,16 +276,6 @@
     <entry file="file://$PROJECT_DIR$/JavaScript复习">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/JavaScript复习/typeof.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/20,jQuery源码-课前预热/jquery-2.0.3.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
@@ -298,10 +283,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JavaScript复习/函数.html">
+    <entry file="file://$PROJECT_DIR$/JavaScript复习/函数.html" />
+    <entry file="file://$PROJECT_DIR$/JavaScript复习/typeof.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="326" column="34" selection-start-line="326" selection-start-column="34" selection-end-line="326" selection-end-column="34" />
+        <state relative-caret-position="132">
+          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/6.闭包/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2992">
+          <caret line="136" selection-start-line="136" selection-end-line="136" />
         </state>
       </provider>
     </entry>

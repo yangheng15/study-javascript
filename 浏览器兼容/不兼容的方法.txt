@@ -1,0 +1,9 @@
+获取子窗口
+1.document.getElementsByTagName('iframe')[0].contentWindow
+2.document.getElementsById('id').contentWindow
+简易写法 
+window.frames['iframe的name']
+
+IE专用
+3.document.iframes[name].contentWindow
+4.document.iframes[i].contentWindow

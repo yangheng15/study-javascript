@@ -10,8 +10,12 @@
 
 <body>
     <script>
-        (1)操作元素 属性，值，内容，样式
-        设置属性：
+
+        //null undefined 容错机制 $(null) $(undefined) 不会报错
+        $(selector,content);//可以穿两个值第一个是选择器第二个是上下文
+        
+        // (1)操作元素 属性，值，内容，样式
+        // 设置属性：
         Dom:
         div.setAttrbuite()
         div.getAttrbuite()
@@ -71,7 +75,7 @@
         $('div').parent();
         $('div').children();
         $('div').children('选择器');
-        $('div').find("选择器")
+        $('div').find("选择器") //经常用css选择器 jquery 选择器
         $("div").next();
         $('div').prev();取得匹配元素前的紧邻的同辈元素
         $('div').prevAll();取得匹配元素前的所有同辈元素
@@ -174,6 +178,8 @@
 
         面试题：两个点击事件的区别：
             window.onload = fu;
+            $(function () {
+            });
             $(document).ready(fn); == addEventListener('DomContentLoaded',fn,false); //当html js 解析完成后触发 ie不支持addEventListener所以jq用其他方法模拟的
             load事件和DomContentLoaded（ie不支持） 事件相比 DomContentLoaded 总早于load 事件
 

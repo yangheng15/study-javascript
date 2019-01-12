@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <ul>
+        <li>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <div class="wrapper">
+        <span class="demo"></span>
+        <span class="demo"></span>
+        <span class="demo"></span>
+    </div> -->
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script src="./jquery.js"></script>
+    <script>
+        //选择所有的li li里面ul的
+        // $('li').has('ul').css({
+        //     backgroundColor : 'red'
+        // })
+            
+        //is 表示选中的当前的元素中 有没有出现span 这个元素 
+        // console.log($('.wrapper .demo').is('span'));
+        $('ul').click(function(e) {
+            if( $(e.target).is('li')) {
+                alert($(e.target).text())
+            }else {
+                alert($(this).text());
+            }
+        })
+    </script>
+</body>
+</html>

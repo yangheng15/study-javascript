@@ -73,13 +73,14 @@
             if(wd.value) {
                 var oScript = document.createElement('script');
                 oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + wd.value +'&cb=doJson';
-                document.body.appendChild(oScript);
+                document.body.appendChild(oScript);//插入到页面中才会执行加载过来的数据
                 document.body.removeChild(oScript);
             }else {
                 oUl.style.display = 'none';
             }
         }
         function doJson(data) {
+            console.log(data);
             var dataList = data.s;
             oUl.innerHTML = '';
             if(dataList.length == 0) {

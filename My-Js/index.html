@@ -10,6 +10,19 @@
 
 <body>
     <script>
+        //返回字符串字节长度
+        function retBytes(str) {
+            var len = str.length;
+            var count = len;
+            for(var i = 0;i < len;i ++) {
+                if(str.charCodeAt(i) > 255) {
+                    count ++
+                }
+            }
+            return count;
+        }
+        console.log(retBytes('hh想'));
+
         // 封装type 可以弥补typeof不足之处
         function type(somethink) {
             var ret = typeof (somethink);
@@ -272,7 +285,7 @@
         function stopBubble(e) {
             var e = e || window.event;
             if (e.stopPropagation) {
-                e.stopPropagation():
+                e.stopPropagation();
             } else {
                 event.cancelBubble = true;
             }
