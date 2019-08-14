@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 属性 i(忽视大小写)
+        // var reg = /abc/;
+        // var str = 'abcd';
+        // console.log(reg.test(str));
+
+        // var reg = /abc/i;
+        // var str = 'abCd';
+        // console.log(reg.test(str));
+    
+        // var reg = new RegExp('abc','i');
+        // var str = 'aBcd'
+        // console.log(reg.test(str));
+
+
+        //全局匹配
+    //     var reg = /ab/g;
+    //     var str = 'ababababa';
+    //    console.log(str.match(reg));
+
+    //多行匹配m 有了m就可以识别出\n了
+
+        var reg = /^a/gm;
+        var str = 'abcd\na';
+        console.log(str.match(reg))
+    </script>
+</body>
+</html>

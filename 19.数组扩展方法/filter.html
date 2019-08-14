@@ -17,27 +17,32 @@
             {name:'赵柳',scr:'./img/dk.png',des:'的空间十分好的好',sex:'男'}
         ];
         var newArr1 = personArr.filter(function (ele,index,self) {
+            if(this.name == ele.name) {//里面的this就是传的二个从参数
+                return true;
+            }else {
+                return false;
+            }
             // if(ele.sex == '男') {
             //     return true;
             // }else {
             //     return false;
             // }
-            ele.sex == '男';//注重返回值，如果为true将会被保存到新数组里false则不保存
-        },{name:'cst'});
+            // ele.sex == '男';//注重返回值，如果为true将会被保存到新数组里false则不保存
+        },{name:'王刚'});
 
-        Array.prototype.myFilter = function (func) {
-            var _arr = this,
-            len = _arr.length,
-            param2 = arguments[1] || window,
-            newArr = [];
-            for(var i = 0;i < len;i ++) {
-                func.apply(param2,[_arr[i],i,_arr]) ? newArr.push(_arr[i]) : '';
-            }
-            return newArr;
-        }
-        var arr = personArr.myFilter(function (ele,index,self) {
-            return ele.sex  == '男';
-        },{name:'cst'});
+        // Array.prototype.myFilter = function (func) {
+        //     var _arr = this,
+        //     len = _arr.length,
+        //     param2 = arguments[1] || window,
+        //     newArr = [];
+        //     for(var i = 0;i < len;i ++) {
+        //         func.apply(param2,[_arr[i],i,_arr]) ? newArr.push(_arr[i]) : '';
+        //     }
+        //     return newArr;
+        // }
+        // var arr = personArr.myFilter(function (ele,index,self) {
+        //     return ele.sex  == '男';
+        // },{name:'cst'});
     </script>
 </body>
 </html>

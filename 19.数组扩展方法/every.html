@@ -20,12 +20,12 @@
             return ele.age > 17;
         },{name:'cst'})
 
-        //every 每一个都符合要求 return 都为true时最后flag才为，一个为false都会返回false
+        //every 每一个都符合要求 return 都为true时最后flag才为true，一个为false都会返回false
 
         Array.prototype.myEvery = function (func) {
             var _arr = this,
             len = arr.length,
-            param2 = arguments || window,
+            param2 = arguments[1] || window,
             flag = true;
             for (var i = 0;i < len;i ++) {
                 if(!func.apply(param2,[_arr[i],i,_arr])) {

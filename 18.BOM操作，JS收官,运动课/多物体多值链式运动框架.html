@@ -34,12 +34,16 @@
                 startMove(oBom,targetObj);
             });
         }
+        // var targetObj = {
+        //     width:400,
+        //     height:400,
+        //     opacity:50,
+        //     left:300,
+        //     top:200
+        // }
+
         var targetObj = {
-            width:400,
-            height:400,
             opacity:50,
-            left:300,
-            top:200
         }
 
         function getStyle (elem,prop) {
@@ -66,7 +70,11 @@
                         // console.log(iCur);
                     }
                     iSpeed = (json[prop] - iCur) / 7;//400 - 100 = 300/7 =42.8 36.7
+                    //50 - 100 = -7.14
+                    // console.log(iCur);
+                    // console.log(iSpeed);
                     iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                    // -7
                     // console.log(iSpeed);
                     if(prop == 'opacity') {
                         obj.style.opacity = (iCur + iSpeed) / 100;

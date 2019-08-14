@@ -7,20 +7,26 @@
     <title>Document</title>
     <style>
         div {
-            width: 100px;
-            height: 100px;
+            width: 400px;
+            height: 400px;
             background-color: red;
         }
     </style>
 </head>
 <body>
     <div></div>
-    <button>切换</button>
-    <script src="../jquery-1.11.3.js"></script>
     <script>
-        $('button').click(function () {
-            $('div').slideToggle(5000);
+        var div = document.getElementsByTagName('div')[0];
+        div.onmouseenter = function () {
+            console.log('enter');
+        }
+        div.addEventListener('mouseover',function() {
+            console.log('over');
+
         })
+        // div.addEventListener('mouseout',function() {
+        //     console.log('out');
+        // })
     </script>
 </body>
 </html>

@@ -16,11 +16,11 @@
         ];
         //返回一个值       参数funciton(preValue,curValue,index,sel)   ,initialValue 初始化值
         var initialValue = {name:'yh'}
-        // var lastValue = personArr.reduce(function (preValue,curValue,index,sel) {
-        //     console.log(preValue,curValue,index,sel);
-        //     preValue.name += 1;
-        //     return preValue;
-        // },initialValue)
+        var lastValue = personArr.reduce(function (preValue,curValue,index,sel) {
+            console.log(preValue,curValue,index,sel);
+            preValue.name += 1;
+            return preValue;
+        },initialValue)
 
         Array.prototype.myReduce = function (func,initialValue) {
             var _arr = this,
