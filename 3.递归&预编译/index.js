@@ -122,7 +122,7 @@
 // test(1)
 // 2-全局的预编译
 // 1.创建GO=window对象
-// 2.找到变量声明，将变量作为AO对象的属性名。值为undefined
+// 2.找到变量声明，将变量作为GO对象的属性名。值为undefined
 // 4.在函数体里找函数声明，值赋予函数体。
 /*DEMO*/
 // var a = 123;
@@ -166,7 +166,7 @@
 // function bar(){
 //     foo = 10;
 //     function foo(){
-//
+
 //     }
 //     var foo = 11;
 //     return foo;
