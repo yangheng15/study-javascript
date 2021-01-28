@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
+
 <body>
 	<script>
 		// function foo() {
@@ -38,9 +40,11 @@
 		// var b = {
 		// 	name:"333",
 		// 	say:function (fun) {
+		// 		console.log(fun);
 		// 		fun();
 		// 	}
 		// }
+		// console.log(b.say);
 		// b.say(a.say);//222
 		// b.say = a.say;
 		// b.say();//333
@@ -53,60 +57,60 @@
 
 		// }
 
-	
-			// var name = "123";
-			// // var obj = {
-			// // 		name:"222",
-			// // 		say:function () {
-			// // 		console.log(this.name);
-			// // 	}
-			// // }
-			// var fn = function () {
-			// 		console.log(this.name);
-			// 	}();
-			
 
-			// // 100的阶乘用立即执行函数写
-			// var num = (function (n) {
-			// 	if(n==1){
-			// 		return 1;
-			// 	}
-			// 	return n * arguments.callee(n-1);
-			// } (100));
-		 // console.log(num);
-
-		 // 对象的克隆
-		 // var person = {
-		 // 	name:"yang",
-		 // 	height:130,
-		 // 	sex:"男",
-		 // }
-
-		 // var person1 = {
-
-		 // }
-
-		 // function clone(origin, target) {
-		 // 	var target = target || {};
-		 // 	for(var prop in origin){
-		 // 		target[prop] = origin[prop];
-		 // 	}
-		 // 	return target;
-		 // }
-		 // console.log(clone(person,person1));
+		// var name = "123";
+		// // var obj = {
+		// // 		name:"222",
+		// // 		say:function () {
+		// // 		console.log(this.name);
+		// // 	}
+		// // }
+		// var fn = function () {
+		// 		console.log(this.name);
+		// 	}();
 
 
-		 // Object.prototype.age = 100;
-		 // window.
-		 // var Person = {
-		 // 	name:"yang",
-		 // 	say: function() {
-		 // 		this.age = 101;//this--->Person
-		 // 		console.log(this.age);
-		 // 	}
-		 // }
-		 // Person.say();
-		 // console.log(this.age);//-->window
+		// // 100的阶乘用立即执行函数写
+		// 	var num = (function (n) {
+		// 		if(n==1){
+		// 			return 1;
+		// 		}
+		// 		return n * arguments.callee(n-1);
+		// 	} (100));
+		//  console.log(num);
+
+		// 对象的克隆
+		//  var person = {
+		//  	name:"yang",
+		//  	height:130,
+		//  	sex:"男",
+		//  }
+
+		// var person1 = {
+
+		// }
+
+		// function clone(origin, target) {
+		// 	var target = target || {};
+		// 	for(var prop in origin){
+		// 		target[prop] = origin[prop];
+		// 	}
+		// 	return target;
+		// }
+		// console.log(clone(person,person1));
+
+
+		// Object.prototype.age = 100;
+		// window.
+		// var Person = {
+		// 	name:"yang",
+		// 	say: function() {
+		// 		this.age = 101;//this--->Person
+		// 		console.log(this.age);
+		// 	}
+		// }
+		// Person.say();
+		// console.log(this.age);//-->window
 
 		// function Person() {
 		// 	this.name = "yang";
@@ -126,7 +130,112 @@
 		// }
 		// var person1 = new Person1("yang",18);
 
-		function f
+
+		/**
+		复习this指向问题
+		**/
+
+		// function test() {
+		// 	console.log(this);// window
+		// }
+		// // test();
+		// var obj = {
+		// 	name: 'yang',
+		// 	fun: function() {
+		// 		console.log(this);
+
+		// 	},
+		// 	jiantou: () => {
+		// 		console.log(this);// window
+
+		// 	}
+		// }
+		// obj.fun(); //this = obj
+		// let f = obj.fun;
+		// f();// window
+		// obj.jiantou();
+
+		// function test() {
+		// 	this.name = 'yang';
+		// 	this.fun = () => {
+		// 		console.log(this);// 
+
+		// 	}
+		// }
+		// new test().fun();
+
+
+		// var handler = {
+		// 	id: '123456',
+
+		// 	init: function () {
+		// 		document.addEventListener('click',
+		// 			event => this.doSomething(event.type), false);
+		// 	},
+
+		// 	doSomething: function (type) {
+		// 		console.log('Handling ' + type + ' for ' + this.id);
+		// 	}
+		// };
+
+
+		// function test() {
+		// 	var b = 123;
+		// 	function a() {
+		// 		console.log(b);
+
+		// 	}
+		// 	return a();
+		// }
+
+		// console.log(test());
+
+
+		// function currying(fn, n) {
+		// 	return function (m) {
+		// 		return fn.call(this, m, n);
+		// 	};
+		// }
+
+		// function tailFactorial(n, total) {
+		// 	if (n === 1) return total;
+		// 	return tailFactorial(n - 1, n * total);
+		// }
+
+		// const factorial = currying(tailFactorial, 1);
+
+		// factorial(5) // 120
+		'use strict'
+
+		// function test() {
+		// 	console.log(this);
+			
+		// }
+		// test();
+
+		
+
+
+
+		// function fn(a) {
+		// 	console.log(a);
+		// 	var a = 123; 
+		// 	console.log(a); 
+		// 	function a() { } 
+		// 	console.log(a);
+		// 	var b = function () { } 
+		// 	console.log(b); 
+		// 	function d() { }
+		// }
+		// fn(1);
+
+		// AO = {
+		// 	a: undefined, // 1 fun() {}
+		// 	b: undefined,
+		// 	d: fun() {}
+
+		// }
 	</script>
 </body>
+
 </html>

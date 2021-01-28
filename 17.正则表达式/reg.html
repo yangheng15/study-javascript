@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 修饰符 */
+        // i代表 ignoreCase 忽视大小写
+        // var reg = /abc/i;
+        // var str = 'Abc';
+        // console.log(reg.test(str));
+
+        // g 全局匹配
+        // var reg = /ab/g;
+        // var str = 'abababa';
+        // console.log(str.match(reg));
+
+        // m 多行匹配
+        // var reg = /^a/gm; //匹配已a开头的
+        // var str = 'adskfj\na'; //\n换行符
+        // console.log(str.match(reg));
+
+        /* 表达式 */
+        // 中括号 [] 一个括号代编一位数 【^a] ^放到表达式中代表非，除了
+        // var reg = /[0-9][0-9][0-9]/g
+        // var str = '123gfk345lgf456'
+        // console.log(str.match(reg));
+
+        /* 元字符*/
+        // \w world  === 【0-9A-z_】
+        // \W === [^\w]
+        // \d === [0-9]
+        // \D === [^\d]
+        // \s === [\t\n\r\f\v 和空格]
+        // \S === [^\s]
+        // \b 单词边界
+        // \B 非单词边界
+        // . === [^\r\n]
+
+        // var str = 'abc cde efg';
+        // var reg = /\bcde\b/g;
+        // console.log(str.match(reg));
+
+        /* 量词 */
+        // n+ {1,多个}
+        // n* {0,}
+        // n? {0,1}
+        // n{x} {x}
+        // n{x,}
+        // var str = 'abc';
+        // var reg = /\wn+/g;
+        // console.log(str.match(reg));
+
+        // var str = 'abababa';
+        // var reg = /ab/g;
+        // console.log(reg.exec(str));
+        // console.log(reg.lastIndex);
+
+        // var str = 'aaaa';
+        // var reg = /(\w)\1\1\1/g;
+
+
+
+        // var str = 'aabb';
+        // var reg = /(\w){2}(\w){2}/g;
+        // console.log(str.match(reg));
+
+
+        /* replace */
+        // var str = 'aacc';
+        // var reg = /a/g;
+        // // console.log(str.replace('a', 'b'));
+        // console.log(str.replace(reg, 'b'));
+
+
+        // var str = 'aabb';
+        // var reg = /(\w)\1(\w)\2/g;
+        // // console.log(str.replace(reg, '$2$2$1$1'));
+        // console.log(str.replace(reg, function($, $1, $2) {
+        //     // $ 是匹配的全部 $1 是第一哥子表达式 $2是第二个
+
+        //     return $2 + $2 + $1 + $1
+        // }));
+
+
+        // var str = 'this-first-name';
+        // var reg = /(-)(\w)/g;
+        // console.log(str.replace(reg, function($, $1, $2) {
+        //     console.log($1, $2);
+        //     return $2.toUpperCase();
+        // }));
+
+        /* 非贪婪匹配 */
+        // var str = 'aaaaa';
+        // var reg = /a+?/g;
+        // console.log(str.match(reg));
+        
+
+        /* 练习题 */
+        // var str = 'aaabbbccc';
+        // var reg = /(\w)\1*/g;
+        // console.log(str.match(reg));
+        
+        // console.log(str.replace(reg, function($, $1) {
+        //     console.log($1);
+            
+        //     return $1
+        // }));
+        
+
+        
+
+        
+        
+
+
+
+
+    </script>
+
+</body>
+
+</html>

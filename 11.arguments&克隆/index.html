@@ -19,28 +19,25 @@
                     }
                 }
             }
-            function deepClone(target,origin) {
-                var target = target || {},
-                toStr = Object.prototype.toString;
-                for(var prop in origin){
-                    if(origin.hasOwnProperty(prop)){
-                        if(origin[prop] !== 'null' && typeof(origin[prop]) == 'object'){
-                            // if(toStr.call(prop) == "[object Array]"){
-                            //     target[prop] = [];
-                            // }else{
-                            //     target[prop] = {};
-                            // }
-                            target[prop] = toStr.call(prop) == "[object Array]" ? [] : {};
-                            // deepClone(target[prop],origin[prop]);
-                        }else{
-                            target[prop] = origin[prop];
-                        }
-                    }
-                }
-                return target;
-            }
-            var obj1 = {}
-            var nObj1 = deepClone(obj1,obj);
+
+
+            // function deepClone(target,origin) {
+            //     var target = target || {},
+            //     toStr = Object.prototype.toString;
+            //     for(var prop in origin){
+            //         if(origin.hasOwnProperty(prop)){
+            //             if(origin[prop] !== 'null' && typeof(origin[prop]) == 'object'){
+            //                 target[prop] = toStr.call(prop) == "[object Array]" ? [] : {};
+            //                 deepClone(target[prop],origin[prop]);
+            //             }else{
+            //                 target[prop] = origin[prop];
+            //             }
+            //         }
+            //     }
+            //     return target;
+            // }
+            // var obj1 = {}
+            // var nObj1 = deepClone(obj1,obj);
                 
             
             // 遍历对象for(var prop in obj);

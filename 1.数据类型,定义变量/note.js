@@ -116,3 +116,7 @@ change();*/
 //     console.log('基础扎实');
 // }
 // !!" " + !!"" - !!false||console.log('哈哈哈');
+
+
+// number string bollean
+// Object, null, undefined, sysmbol

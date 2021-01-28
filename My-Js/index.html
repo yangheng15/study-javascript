@@ -382,6 +382,12 @@
                 func.apply(param2,[_arr[i],i,_arr]);
             }
         }
+
+        //返回类型
+        const isType = type => target => `[object ${type}]` === Object.prototype.toString.call(target);
+        const isStr = isType('String');
+        console.log(isStr('123'))
+
     </script>
 </body>
 

@@ -178,3 +178,21 @@
 // })();
 // console.log(a);
 // console.log(b);
+
+// function test(a) {
+//     console.log(a);
+//     function a() {
+
+//     }
+
+// }
+// test(1)
+
+function a() {
+    var b = 132;
+    var bb = function (){
+        console.log(b);
+    }
+    bb
+    return bb;
+}
