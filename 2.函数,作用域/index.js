@@ -14,13 +14,14 @@
 //     console.log(arguments);
 // }
 /*实参*/
-// sum(11,2,3);
+sum(11,2,3);
 // arguments ->[11,2,3] 实参列表
-// function sum(a,b,c,d) {
-//     for (var i = 0; i < arguments.length;i++){
-//         console.log(arguments[i]);
-//     }
-// }
+function sum(a,b,c,d) {
+    // for (var i = 0; i < arguments.length;i++){
+    //     console.log(arguments[i]);
+    // }
+    console.log(arguments);
+}
 //形参列表
 // function sum(a,b,c,d) {
 //     console.log(sum.length);
@@ -31,12 +32,11 @@
 //     console.log(arguments[0]);
 // }
 // 函数返回值
-// function myNum(target) {
-//     return +target;
-//
-// }
-// var num = myNum('-123');
-// console.log(num);
+function myNum(target) {
+    return +target;
+}
+var num = myNum('-123');
+console.log(num);
 
 //加法计数器
 // function calculator() {

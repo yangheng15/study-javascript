@@ -1,37 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	
-<script>
-	// function a(){
-	// 	function b(){
-	// 		var bbb = 234;
-	// 		console.log(aaa);
-	// 	}
-	// 	var aaa = 123;
-	// 	return b;
-	// }
-	// var glob = 100;
-	// var demo = a();
-	// demo();
-//内部的函数被保存到外部这就是闭包
-// 闭包例子
-// function a(){
-// 	var num = 100;
-// 	function b(){
-// 		num++;
-// 		console.log(num);
-// 	}
-// 	return b;
-// }
-// var demo = a();
-// console.log(demo);
-// demo();
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // function a(){
+            // 	function b(){
+            // 		var bbb = 234;
+            // 		console.log(aaa);
+            // 	}
+            // 	var aaa = 123;
+            // 	return b;
+            // }
+            // var glob = 100;
+            // var demo = a();
+            // demo();
+            //内部的函数被保存到外部这就是闭包
+            // 闭包例子
+            // function a(){
+            // 	var num = 100;
+            // 	function b(){
+            // 		num++;
+            // 		console.log(num);
+            // 	}
+            // 	return b;
+            // }
+            // var demo = a();
+            // console.log(demo);
+            // demo();
 
-</script>
-</body>
+            Array.prototype.forEach = function (func) {
+                var len = this.length;
+                var _this = arguments[1] != undefined ? arguments[1] : window;
+                //_this 值的是可以传递this指向
+                for (var i = 0; i < len; i++) {
+                    func.apply(_this, [this[i], i, this]);
+                }
+            };
+            /** return xxx  和 xxx return 区别 **/
+            const repeatArr = [];
+            function test() {
+                const arr = [1, 2, 3, 4];
+                arr.forEach((it) => {
+                    if (it === 3) {
+                        return repeatArr.push(it);
+                    }
+                });
+            }
+            test();
+            console.log(repeatArr);
+            // 总结： return 后面是表达式的话会执行表达式，返回表达式执行之后的指，如果return 后面是函数则会直接返回
+
+			function test1() {
+				if(1) return 123
+			}
+			console.log(test1());
+        </script>
+    </body>
 </html>

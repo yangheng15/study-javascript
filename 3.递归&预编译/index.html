@@ -1,38 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="index.js"></script>
-</head>
-<body>
-	<script>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <!-- <script src="index.js"></script> -->
+    </head>
+    <body>
+        <script>
+            // var abc = "123abc";
+            // console.log(parseInt(15,16));
 
-		// var abc = "123abc";
-		// console.log(parseInt(15,16)); 
-		
-		// function test (a,b) {
-		// 	console.log(arguments);
-		// 	console.log(b);
-		// }
-		// test(1,2,3);	
+            // function test (a,b) {
+            // 	var c = 0;
+            // 	console.log(arguments);
+            // 	console.log(b);
+            // 	a = function() {
 
-		// Go{
-		// 	test:function (){},j
-		// }
+            // 	}
+            // }
+            // test(1,2,3);
 
-		// Ao{
-		// 	 a :undefined,
-		// 	 b:undefined,
-		// 	 argrument:[a,b]
-		// }
+            // Go{
+            // 	test:function (){},j
+            // }
 
+            // Ao{
+            // 	 a :undefined, 1
+            // 	 b:undefined,2
+            // 	 argrument:[a,b]
+            // this: window
+            // }
 
-		// var test = function () {
-			
-		// }
-		// console.log(test.name);
+            // var test = function () {
 
-	</script>
-</body>
+            // }
+            // console.log(test.name);
+
+            // 隐式全局变量没有变量提升
+            function foo() {
+                console.log(getName);
+                var getName = function () {
+                    console.log('getName');
+                };
+            }
+            foo();
+        </script>
+    </body>
 </html>

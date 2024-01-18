@@ -1,241 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
 
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
+    <body>
+        <script>
+            // function foo() {
+            // 	bar.apply(null,arguments);
+            // }
+            // function bar() {
+            // 	console.log(arguments);
+            // }
+            // foo(1,2,3,4,5);
 
-<body>
-	<script>
-		// function foo() {
-		// 	bar.apply(null,arguments);
-		// }
-		// function bar() {
-		// 	console.log(arguments);
-		// }
-		// foo(1,2,3,4,5);
+            // 逗号操作符
+            // var num = (1,2);
+            // alert(num );
 
-		// 逗号操作符
-		// var num = (1,2);
-		// alert(num );
+            // (function f() {
 
-		// (function f() {
+            // })
+            // console.log(typeof(f));
 
-		// })
-		// console.log(typeof(f));
+            // this笔试题
+            // var name = "222";
+            // var a = {
+            // 	name: "111",
+            // 	say: function () {
+            // 		console.log(this.name);
+            // 	}
+            // }
+            // // Object.prototype.name = "121";
+            // var fun = a.say;
+            // fun()//222
+            // a.say()//111
+            // var b = {
+            // 	name:"333",
+            // 	say:function (fun) {
+            // 		console.log(fun);
+            // 		fun();
+            // 	}
+            // }
+            // console.log(b.say);
+            // b.say(a.say);//222
+            // b.say = a.say;
+            // b.say();//333
 
-		// this笔试题
-		// var name = "222";
-		// var a = {
-		// 	name: "111",
-		// 	say: function () {
-		// 		console.log(this.name);
-		// 	} 
-		// }
-		// // Object.prototype.name = "121";
-		// var fun = a.say;
-		// fun()//222
-		// a.say()//111
-		// var b = {
-		// 	name:"333",
-		// 	say:function (fun) {
-		// 		console.log(fun);
-		// 		fun();
-		// 	}
-		// }
-		// console.log(b.say);
-		// b.say(a.say);//222
-		// b.say = a.say;
-		// b.say();//333
+            // Go{
+            // 	name:"222",
+            // 	a:undefined,
+            // 	fun:undefined,
+            // 	b:undefined,
 
-		// Go{
-		// 	name:"222",
-		// 	a:undefined,
-		// 	fun:undefined,
-		// 	b:undefined,
+            // }
 
-		// }
+            // var name = "123";
+            // // var obj = {
+            // // 		name:"222",
+            // // 		say:function () {
+            // // 		console.log(this.name);
+            // // 	}
+            // // }
+            // var fn = function () {
+            // 		console.log(this.name);
+            // 	}();
 
+            // // 100的阶乘用立即执行函数写
+            // 	var num = (function (n) {
+            // 		if(n==1){
+            // 			return 1;
+            // 		}
+            // 		return n * arguments.callee(n-1);
+            // 	} (100));
+            //  console.log(num);
 
-		// var name = "123";
-		// // var obj = {
-		// // 		name:"222",
-		// // 		say:function () {
-		// // 		console.log(this.name);
-		// // 	}
-		// // }
-		// var fn = function () {
-		// 		console.log(this.name);
-		// 	}();
+            // 对象的克隆
+            //  var person = {
+            //  	name:"yang",
+            //  	height:130,
+            //  	sex:"男",
+            //  }
 
+            // var person1 = {
 
-		// // 100的阶乘用立即执行函数写
-		// 	var num = (function (n) {
-		// 		if(n==1){
-		// 			return 1;
-		// 		}
-		// 		return n * arguments.callee(n-1);
-		// 	} (100));
-		//  console.log(num);
+            // }
 
-		// 对象的克隆
-		//  var person = {
-		//  	name:"yang",
-		//  	height:130,
-		//  	sex:"男",
-		//  }
+            // function clone(origin, target) {
+            // 	var target = target || {};
+            // 	for(var prop in origin){
+            // 		target[prop] = origin[prop];
+            // 	}
+            // 	return target;
+            // }
+            // console.log(clone(person,person1));
 
-		// var person1 = {
+            // Object.prototype.age = 100;
+            // window.
+            // var Person = {
+            // 	name:"yang",
+            // 	say: function() {
+            // 		this.age = 101;//this--->Person
+            // 		console.log(this.age);
+            // 	}
+            // }
+            // Person.say();
+            // console.log(this.age);//-->window
 
-		// }
+            // function Person() {
+            // 	this.name = "yang";
+            // }
+            // Person();
+            // console.log(this.name);
 
-		// function clone(origin, target) {
-		// 	var target = target || {};
-		// 	for(var prop in origin){
-		// 		target[prop] = origin[prop];
-		// 	}
-		// 	return target;
-		// }
-		// console.log(clone(person,person1));
+            // Person.prototype.sex = "男";
+            // function Person(name,age) {
+            // 	// var this = Object.create(Person.prototype);
+            // 	this.name = name;
+            // 	this.age = age;
+            // }
+            // var person = new Person();
+            // function Person1(name,age){
+            // 	Person.apply(this,arguments);
+            // }
+            // var person1 = new Person1("yang",18);
 
-
-		// Object.prototype.age = 100;
-		// window.
-		// var Person = {
-		// 	name:"yang",
-		// 	say: function() {
-		// 		this.age = 101;//this--->Person
-		// 		console.log(this.age);
-		// 	}
-		// }
-		// Person.say();
-		// console.log(this.age);//-->window
-
-		// function Person() {
-		// 	this.name = "yang";
-		// }
-		// Person();
-		// console.log(this.name);
-
-		// Person.prototype.sex = "男";
-		// function Person(name,age) {
-		// 	// var this = Object.create(Person.prototype);
-		// 	this.name = name;
-		// 	this.age = age;
-		// }
-		// var person = new Person();
-		// function Person1(name,age){
-		// 	Person.apply(this,arguments);
-		// }
-		// var person1 = new Person1("yang",18);
-
-
-		/**
+            /**
 		复习this指向问题
 		**/
 
-		// function test() {
-		// 	console.log(this);// window
-		// }
-		// // test();
-		// var obj = {
-		// 	name: 'yang',
-		// 	fun: function() {
-		// 		console.log(this);
+            // function test() {
+            // 	console.log(this);// window
+            // }
+            // // test();
+            // var obj = {
+            // 	name: 'yang',
+            // 	fun: function() {
+            // 		console.log(this);
 
-		// 	},
-		// 	jiantou: () => {
-		// 		console.log(this);// window
+            // 	},
+            // 	jiantou: () => {
+            // 		console.log(this);// window
 
-		// 	}
-		// }
-		// obj.fun(); //this = obj
-		// let f = obj.fun;
-		// f();// window
-		// obj.jiantou();
+            // 	}
+            // }
+            // obj.fun(); //this = obj
+            // let f = obj.fun;
+            // f();// window
+            // obj.jiantou();
 
-		// function test() {
-		// 	this.name = 'yang';
-		// 	this.fun = () => {
-		// 		console.log(this);// 
+            // function test() {
+            // 	this.name = 'yang';
+            // 	this.fun = () => {
+            // 		console.log(this);//
 
-		// 	}
-		// }
-		// new test().fun();
+            // 	}
+            // }
+            // new test().fun();
+
+            // var handler = {
+            // 	id: '123456',
+
+            // 	init: function () {
+            // 		document.addEventListener('click',
+            // 			event => this.doSomething(event.type), false);
+            // 	},
+
+            // 	doSomething: function (type) {
+            // 		console.log('Handling ' + type + ' for ' + this.id);
+            // 	}
+            // };
+
+            // function test() {
+            // 	var b = 123;
+            // 	function a() {
+            // 		console.log(b);
+
+            // 	}
+            // 	return a();
+            // }
+
+            // console.log(test());
+
+            // function currying(fn, n) {
+            // 	return function (m) {
+            // 		return fn.call(this, m, n);
+            // 	};
+            // }
+
+            // function tailFactorial(n, total) {
+            // 	if (n === 1) return total;
+            // 	return tailFactorial(n - 1, n * total);
+            // }
+
+            // const factorial = currying(tailFactorial, 1);
+
+            // factorial(5) // 120
+            // 'use strict'
+            // var a =  123;
+            // function test() {
+            // 	console.log(this);
+            // }
+            // test();
+
+            // class Test {
+            //     test() {
+            //         console.log(this);
+            //     }
+            // }
+            // const { test } = new Test();
+            // console.log(test());
+
+            // function Test() {
+            // 	this.test = function () {
+            // 		console.log(this); // window
+            // 	}
+            // }
+            // // console.log(new Test().test());
+            // const { test } = new Test();
+            // console.log(test());
 
 
-		// var handler = {
-		// 	id: '123456',
+            // function fn(a) {
+            // 	console.log(a);
+            // 	var a = 123;
+            // 	console.log(a);
+            // 	function a() { }
+            // 	console.log(a);
+            // 	var b = function () { }
+            // 	console.log(b);
+            // 	function d() { }
+            // }
+            // fn(1);
 
-		// 	init: function () {
-		// 		document.addEventListener('click',
-		// 			event => this.doSomething(event.type), false);
-		// 	},
+            // AO = {
+            // 	a: undefined, // 1 fun() {}
+            // 	b: undefined,
+            // 	d: fun() {}
 
-		// 	doSomething: function (type) {
-		// 		console.log('Handling ' + type + ' for ' + this.id);
-		// 	}
-		// };
-
-
-		// function test() {
-		// 	var b = 123;
-		// 	function a() {
-		// 		console.log(b);
-
-		// 	}
-		// 	return a();
-		// }
-
-		// console.log(test());
-
-
-		// function currying(fn, n) {
-		// 	return function (m) {
-		// 		return fn.call(this, m, n);
-		// 	};
-		// }
-
-		// function tailFactorial(n, total) {
-		// 	if (n === 1) return total;
-		// 	return tailFactorial(n - 1, n * total);
-		// }
-
-		// const factorial = currying(tailFactorial, 1);
-
-		// factorial(5) // 120
-		'use strict'
-
-		// function test() {
-		// 	console.log(this);
-			
-		// }
-		// test();
-
-		
-
-
-
-		// function fn(a) {
-		// 	console.log(a);
-		// 	var a = 123; 
-		// 	console.log(a); 
-		// 	function a() { } 
-		// 	console.log(a);
-		// 	var b = function () { } 
-		// 	console.log(b); 
-		// 	function d() { }
-		// }
-		// fn(1);
-
-		// AO = {
-		// 	a: undefined, // 1 fun() {}
-		// 	b: undefined,
-		// 	d: fun() {}
-
-		// }
-	</script>
-</body>
-
+            // }
+        </script>
+    </body>
 </html>

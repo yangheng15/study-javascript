@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <div v-html="msg"></div>
+            <div v-html="img"></div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    msg: `<script>alert("xss");<\/script>`,
+                    img: '<img src="www.xxx.com" alt="" onerror="alert(1)">'
+                },
+            });
+        </script>
+    </body>
+</html>
+
+<!-- 
+    原因：运行JS的时候由上至下，先识别模板字符串里面的script标签，会认为标签结束了，所以后面会报错(其实和字符串里面无法放script标签是一个道理)
+    解决：加上反斜杠转译
+
+    HTML 5 中指定不执行由 innerHTML 插入的 <script> 标签。
+ -->
